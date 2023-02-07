@@ -21,7 +21,6 @@
     transition: all 0.3s ease-out;
 }
 
-
 .cta_bar:hover {
     height: 280px;
     margin-top: -15px;
@@ -47,7 +46,6 @@
     padding: 1rem 2rem;
 }
 
-
 /* Desktop-only effects*/
 @media screen and (min-width: 1050px) {
     .cta_bar:hover span:not(:hover) {
@@ -71,9 +69,7 @@
         cursor: pointer;
         scale: 0.95;
     }
-
 }
-
 
 /* Mobile */
 @media screen and (max-width: 1050px) {

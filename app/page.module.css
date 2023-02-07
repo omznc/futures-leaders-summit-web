@@ -71,9 +71,7 @@
     transition: all 0.1s ease-out;
     animation: fadein 0.5s;
     z-index: 3;
-
 }
-
 
 @keyframes fadein {
     0% {
@@ -96,7 +94,6 @@
     object-fit: cover;
     overflow: hidden;
     filter: blur(1px) grayscale(0.9) brightness(0.5) hue-rotate(180deg) sepia(0.2);
-
 }
 
 .backgroundOverlay {
@@ -116,6 +113,21 @@
     transform-origin: left;
     overflow: hidden;
 }
+
+.backgroundOverlayDecoration {
+    position: absolute;
+    bottom: -1vh;
+    z-index: -1;
+    transform-origin: center bottom;
+    overflow: hidden;
+}
+
+.backgroundOverlayDecoration img {
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+}
+
 
 .content {
     display: flex;
@@ -165,7 +177,7 @@
     }
 
     50% {
-        filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.3))
+        filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.3));
     }
 
     100% {
@@ -176,6 +188,7 @@
 /*Keynotes*/
 .keynotes {
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -199,8 +212,9 @@
     align-items: center;
     width: fit-content;
     height: fit-content;
+    max-width: 700px;
     aspect-ratio: 2/1;
-    flex: 50%
+    flex: 50%;
 }
 
 .keynote .details {
@@ -245,6 +259,11 @@
     aspect-ratio: 1/1.154;
     box-sizing: border-box;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: all 0.2s ease-in-out;
+}
+
+.keynote:hover .hexagon {
+    scale: 1.05;
 }
 
 .keynote img {
@@ -254,8 +273,13 @@
     object-fit: cover;
     left: 0;
     top: 0;
+    filter: grayscale(1);
+    transition: all 0.2s ease-in-out;
 }
 
+.keynote:hover img {
+    filter: grayscale(0);
+}
 
 /* Mobile */
 @media screen and (max-width: 1050px) {
@@ -274,7 +298,6 @@
 
     .content {
         padding: 0 1rem;
-
     }
 
     .content .title {
@@ -288,6 +311,6 @@
     }
 
     .keynotes {
-        padding: 2rem 1rem;
+        padding: 2rem 2rem;
     }
 }
