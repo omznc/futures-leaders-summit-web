@@ -1,18 +1,23 @@
 import './globals.css'
+import Header from './components/Header/Header'
+import { Inter } from '@next/font/google'
+import { ReactNode } from "react";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
+const inter = Inter({ subsets: [ 'latin' ] })
+
+export default function RootLayout({ children }: {
+	children: ReactNode
 }) {
-  return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>{children}</body>
-    </html>
-  )
+	return (
+		<>
+			<html lang="en" className={ inter.className }>
+			<head/>
+			<body>
+			<Header/>
+			{ children }
+			</body>
+			</html>
+		</>
+
+	)
 }
