@@ -15,7 +15,6 @@
     background-color: var(--primary-gray);
 }
 
-
 .backgroundOverlay {
     position: absolute;
     right: 0;
@@ -24,30 +23,6 @@
     transform-origin: right;
     overflow: hidden;
 }
-
-.backgroundOverlayFlipped {
-    position: absolute;
-    left: 0;
-    z-index: 0;
-    scale: 1.8;
-    transform-origin: left;
-    overflow: hidden;
-}
-
-.backgroundOverlayDecoration {
-    position: absolute;
-    bottom: -1vh;
-    z-index: -1;
-    transform-origin: center bottom;
-    overflow: hidden;
-}
-
-.backgroundOverlayDecoration img {
-    width: 100vw;
-    height: auto;
-    object-fit: cover;
-}
-
 
 .content {
     display: flex;
@@ -70,10 +45,6 @@
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.content .title:hover {
-    animation: glow 2s infinite;
-}
-
 .content .description {
     font-size: 1.5rem;
     font-weight: 400;
@@ -89,9 +60,7 @@
 .content .description:hover span {
     color: var(--theme-color);
     animation: glow 2s infinite;
-    transition: all 0.2s ease-in-out;
 }
-
 
 .content button {
     border-radius: 200px;
@@ -103,20 +72,6 @@
     transition: all 0.3s ease-in-out;
     white-space: nowrap;
     padding: 1rem 2rem;
-}
-
-@keyframes glow {
-    0% {
-        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.3));
-    }
-
-    100% {
-        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
-    }
 }
 
 
@@ -137,6 +92,10 @@
         cursor: pointer;
         scale: 0.95;
     }
+
+    .content .title:hover {
+        animation: glow 2s infinite;
+    }
 }
 
 
@@ -156,10 +115,26 @@
 
     .content .title {
         width: 100%;
+        animation: glow 2s infinite;
     }
 
     .content .description {
         width: 100%;
         font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.3));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
     }
 }
