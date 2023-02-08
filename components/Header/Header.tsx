@@ -3,7 +3,7 @@
 import styles from './Header.module.css';
 import Image from 'next/image';
 import { BsArrowBarDown } from 'react-icons/bs';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const items = [
     { name: 'Home', url: '/' },
@@ -22,6 +22,7 @@ export default function Header() {
     const [isScrollingUp, setIsScrollingUp] = useState<boolean>(false);
     const [lastScroll, setLastScroll] = useState<number>(0);
     const [firstLoad, setFirstLoad] = useState<boolean>(true);
+    const headerRef = useRef<HTMLDivElement>(null);
 
     // Checking if the user is scrolling up, and setting `isScrollingUp`.
     useEffect(() => {
@@ -45,11 +46,31 @@ export default function Header() {
         }
     }, [firstLoad]);
 
+    // While header is hovered, expanded is always true.
+    useEffect(() => {
+        const handleMouseEnter = () => {
+            setExpanded(true);
+            setIsScrollingUp(true);
+        };
+        const handleMouseLeave = () => {
+            setExpanded(false);
+            setIsScrollingUp(true);
+        };
+        const header = headerRef.current;
+        header?.addEventListener('mouseenter', handleMouseEnter);
+        header?.addEventListener('mouseleave', handleMouseLeave);
+        return () => {
+            header?.removeEventListener('mouseenter', handleMouseEnter);
+            header?.removeEventListener('mouseleave', handleMouseLeave);
+        };
+    }, []);
+
     return (
         <div
             className={styles.header}
             data-expanded={expanded}
             data-enabled={expanded || isScrollingUp}
+            ref={headerRef}
         >
             <div className={styles.logo}>
                 <Image
