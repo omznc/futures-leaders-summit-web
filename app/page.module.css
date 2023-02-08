@@ -103,9 +103,9 @@
 
 .backgroundOverlayDecoration {
     position: absolute;
-    bottom: -1vh;
+    bottom: -0.5vh;
     z-index: -1;
-    transform-origin: center bottom;
+    transform-origin: center center;
     overflow: hidden;
 }
 
@@ -199,7 +199,7 @@
 .hexagon {
     display: block;
     position: relative;
-    height: 200px; /* width * 0.866 */
+    height: 200px;
     width: auto;
     aspect-ratio: 1/1.154;
     box-sizing: border-box;
@@ -237,13 +237,55 @@
 
     .keynotes {
         justify-content: flex-start;
+        align-items: flex-start;
+        padding: 2rem 0.5rem;
     }
 
-    .keynotes {
-        padding: 2rem 2rem;
+    /*every except for first element*/
+    .keynote {
+        border-top: 1px solid rgba(255, 255, 255, 0.51);
+        border-width: 1px;
+    }
+
+    .keynote .details {
+        padding-right: 0;
+    }
+
+    .keynote .details h2 {
+        font-size: 1rem;
+    }
+
+    .keynote .details p {
+        font-size: 0.8rem;
+    }
+
+    .hexagon {
+        height: 100px;
+        align-self: flex-start;
+        margin-top: 2rem;
     }
 }
 
+@media screen and (min-width: 488px) and (max-width: 1050px) {
+    .keynote {
+        flex: 100%;
+        width: 100%;
+        border: none;
+    }
+
+    .keynote .details h2 {
+        font-size: 1.5rem;
+    }
+
+    .keynote .details p {
+        font-size: 1rem;
+    }
+
+    .hexagon {
+        height: 200px;
+        align-self: center;
+    }
+}
 
 /* Desktop-only effects */
 @media screen and (min-width: 1050px) {
