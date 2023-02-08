@@ -4,6 +4,8 @@ import styles from './Header.module.css';
 import Image from 'next/image';
 import { TbArrowBarUp, TbMenu } from 'react-icons/tb';
 import { useEffect, useRef, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const items = [
 	{ name: 'Home', url: '/' },
@@ -19,12 +21,13 @@ const secondsUntilHeaderExpands = 1;
 
 export default function Header() {
 	const [expanded, setExpanded] = useState<boolean>(false);
-	const [isScrollingUp, setIsScrollingUp] = useState<boolean>(false);
 	const [lastScroll, setLastScroll] = useState<number>(0);
 	const [firstLoad, setFirstLoad] = useState<boolean>(true);
 	const [headerHovered, setHeaderHovered] = useState<boolean>(false);
 	const headerRef = useRef<HTMLDivElement>(null);
-	const [currentPath, setCurrentPath] = useState<string>('/');
+	const [isScrollingUp, setIsScrollingUp] = useState<boolean>(false);
+	const router = useRouter();
+	const path = usePathname();
 
 	// Checking if the user is scrolling up, and setting `isScrollingUp`.
 	useEffect(() => {
@@ -65,10 +68,6 @@ export default function Header() {
 		};
 	}, []);
 
-	useEffect(() => {
-		setCurrentPath(window.location.pathname);
-	}, []);
-
 	return (
 		<div
 			className={styles.header}
@@ -78,13 +77,11 @@ export default function Header() {
 		>
 			<div className={styles.logo}>
 				<Image
-					src="/logo.png"
+					src="/logo.webp"
 					alt="Futures Leaders Summit"
 					width={900}
 					height={500}
-					onClick={() => {
-						if (currentPath !== '/') window.location.href = '/';
-					}}
+					onClick={() => router.push('/')}
 				/>
 			</div>
 			<div
@@ -101,19 +98,15 @@ export default function Header() {
 			</div>
 			<div className={styles.nav} data-expanded={expanded}>
 				{items.map(item => (
-					<a
+					<Link
 						href={item.url}
+						className={styles.item}
 						key={item.url}
-						onClick={event => {
-							// 	If we'd change to the same page, we don't want to reload the page.
-							if (currentPath === item.url) {
-								event.preventDefault();
-							}
-						}}
-						data-current={currentPath === item.url}
+						data-current={path === item.url}
+						onClick={() => setExpanded(false)}
 					>
 						{item.name}
-					</a>
+					</Link>
 				))}
 			</div>
 		</div>

@@ -11,24 +11,24 @@ const keynotes = [
 	{
 		name: 'Sana Alajmovic',
 		company: 'Co-Founder & CEO at Sigrid Therapeutics',
-		image: '/speakers/sana-alajmovic.bmp',
+		image: '/speakers/sana-alajmovic.webp',
 	},
 	{
 		name: 'Ivica Puljak',
 		company: 'Mayor of City of Split',
-		image: '/speakers/ivica-puljak.bmp',
+		image: '/speakers/ivica-puljak.webp',
 	},
 	{
 		name: 'Nina Avramovic Trninic',
 		company:
 			'Head of Department for Railway Technology at the Austrian Federal Ministry for Climate Action, Environment, Energy, Mobility, Innovation and Technology',
-		image: '/speakers/nina-avramovic-trnicic.bmp',
+		image: '/speakers/nina-avramovic-trnicic.webp',
 	},
 	{
 		name: 'Azra Osmancevic',
 		company:
 			'Head of Business Development at Viaplay Group, Co-founder at Justic',
-		image: '/speakers/azra-osmancevic.bmp',
+		image: '/speakers/azra-osmancevic.webp',
 	},
 ];
 
