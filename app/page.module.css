@@ -78,7 +78,6 @@
     object-fit: cover;
     overflow: hidden;
     filter: blur(1px) grayscale(0.9) brightness(0.5) hue-rotate(180deg) sepia(0.2);
-    animation: border-in 1s ease-out;
 }
 
 @keyframes border-in {
@@ -89,6 +88,8 @@
         border: black solid 0;
     }
 }
+
+/* Desktop-only*/
 
 
 .backgroundOverlayFlipped {
@@ -240,5 +241,13 @@
 
     .keynotes {
         padding: 2rem 2rem;
+    }
+}
+
+
+/* Desktop-only effects */
+@media screen and (min-width: 1050px) {
+    .hero .background {
+        animation: border-in 1s ease-out;
     }
 }

@@ -22,6 +22,7 @@ export default function Header() {
     const [isScrollingUp, setIsScrollingUp] = useState<boolean>(false);
     const [lastScroll, setLastScroll] = useState<number>(0);
     const [firstLoad, setFirstLoad] = useState<boolean>(true);
+    const [headerHovered, setHeaderHovered] = useState<boolean>(false);
     const headerRef = useRef<HTMLDivElement>(null);
 
     // Checking if the user is scrolling up, and setting `isScrollingUp`.
@@ -49,11 +50,11 @@ export default function Header() {
     // While header is hovered, expanded is always true.
     useEffect(() => {
         const handleMouseEnter = () => {
-            setExpanded(true);
+            setHeaderHovered(true);
             setIsScrollingUp(true);
         };
         const handleMouseLeave = () => {
-            setExpanded(false);
+            setHeaderHovered(false);
             setIsScrollingUp(true);
         };
         const header = headerRef.current;
@@ -69,7 +70,7 @@ export default function Header() {
         <div
             className={styles.header}
             data-expanded={expanded}
-            data-enabled={expanded || isScrollingUp}
+            data-enabled={expanded || isScrollingUp || headerHovered}
             ref={headerRef}
         >
             <div className={styles.logo}>
