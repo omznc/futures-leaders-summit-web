@@ -15,11 +15,15 @@ const items = [
     { name: 'Venue', url: '/venue' },
 ];
 
+const secondsUntilHeaderExpands = 1;
+
 export default function Header() {
     const [expanded, setExpanded] = useState<boolean>(false);
-    const [isScrollingUp, setIsScrollingUp] = useState<boolean>(true);
+    const [isScrollingUp, setIsScrollingUp] = useState<boolean>(false);
     const [lastScroll, setLastScroll] = useState<number>(0);
+    const [firstLoad, setFirstLoad] = useState<boolean>(true);
 
+    // Checking if the user is scrolling up, and setting `isScrollingUp`.
     useEffect(() => {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
@@ -30,6 +34,16 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScroll]);
+
+    // On first load, after 2 seconds, set `expanded` to true, which will show the nav.
+    useEffect(() => {
+        if (firstLoad) {
+            setFirstLoad(false);
+            setTimeout(() => {
+                setIsScrollingUp(true);
+            }, secondsUntilHeaderExpands * 1000);
+        }
+    }, [firstLoad]);
 
     return (
         <div

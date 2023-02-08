@@ -11,6 +11,7 @@
     padding: 0 20px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    transition-delay: 0.15s;
     user-select: none;
     user-drag: none;
     z-index: 999;
