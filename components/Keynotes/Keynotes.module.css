@@ -55,7 +55,6 @@
     align-items: flex-start;
     text-align: left;
     width: 100%;
-    height: fit-content;
     padding: 2rem;
     gap: 1rem;
 }
@@ -78,16 +77,6 @@
     opacity: 1;
 }
 
-.keynote .details .socials {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 40%;
-    padding-top: 2rem;
-    gap: 1rem;
-}
 
 .hexagon {
     display: block;
@@ -104,11 +93,12 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    scale: 1.05;
     object-fit: cover;
     left: 0;
     top: 0;
     filter: grayscale(1);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-out;
 }
 
 
@@ -120,13 +110,12 @@
 
     .keynote:hover img {
         filter: grayscale(0);
-        scale: 1.05;
+        scale: 1;
     }
 
     .keynote:hover .details h2 {
         font-weight: bolder;
     }
-
 }
 
 

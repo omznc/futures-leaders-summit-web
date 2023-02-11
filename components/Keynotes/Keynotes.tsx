@@ -1,18 +1,13 @@
 import styles from './Keynotes.module.css';
 import Image from 'next/image';
 import { Anton } from '@next/font/google';
+import { IKeynote } from '@/interfaces/interfaces';
+import { Socials } from '@/components/Socials/Socials';
 
+const keynotes: IKeynote[] = require('/public/placeholder-data/keynotes.json');
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
-export function Keynotes({
-	keynotes,
-}: {
-	keynotes: {
-		name: string;
-		company: string;
-		image: string;
-	}[];
-}) {
+export function Keynotes() {
 	return (
 		<div className={styles.hero_dynamic}>
 			{/*<div className={ styles.backgroundOverlayFlipped }>*/}
@@ -21,18 +16,17 @@ export function Keynotes({
 			<div className={styles.keynotes}>
 				<h1 className={anton.className}>KEYNOTES</h1>
 				{keynotes.map((keynote, index) => (
-					<Keynote keynote={keynote} key={index} />
+					<Keynote
+						keynote={keynote}
+						key={`${keynote.name}-${keynote.company}`}
+					/>
 				))}
 			</div>
 		</div>
 	);
 }
 
-function Keynote({
-	keynote,
-}: {
-	keynote: { name: string; company: string; image: string };
-}) {
+function Keynote({ keynote }: { keynote: IKeynote }) {
 	return (
 		<div className={styles.keynote}>
 			<div className={styles.hexagon}>
@@ -41,11 +35,7 @@ function Keynote({
 			<div className={styles.details}>
 				<h2>{keynote.name}</h2>
 				<p>{keynote.company}</p>
-				<div className={styles.socials}>
-					<p>1</p>
-					<p>2</p>
-					<p>3</p>
-				</div>
+				{keynote.socials && <Socials socials={keynote.socials} />}
 			</div>
 		</div>
 	);

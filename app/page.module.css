@@ -8,6 +8,7 @@
     position: relative;
     z-index: 1;
     margin-bottom: 500px;
+    overflow: hidden;
 }
 
 .hero {
@@ -77,7 +78,7 @@
 
 .backgroundOverlayDecoration {
     position: absolute;
-    bottom: -0.5vh;
+    bottom: -2vh;
     z-index: -1;
     transform-origin: center center;
     overflow: hidden;

@@ -4,41 +4,29 @@ import styles from './page.module.css';
 import { CallToAction } from '@/components/CallToAction/CallToAction';
 import { Information } from '@/components/Information/Information';
 import { Keynotes } from '@/components/Keynotes/Keynotes';
+import HeroBackground from '@/public/hero.webp';
+import HeroLogo from '@/public/hero-new.svg';
+import BackgroundDecoration from '@/public/decor.svg';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const keynotes = [
-	{
-		name: 'Sana Alajmovic',
-		company: 'Co-Founder & CEO at Sigrid Therapeutics',
-		image: '/speakers/sana-alajmovic.webp',
-	},
-	{
-		name: 'Ivica Puljak',
-		company: 'Mayor of City of Split',
-		image: '/speakers/ivica-puljak.webp',
-	},
-	{
-		name: 'Nina Avramovic Trninic',
-		company:
-			'Head of Department for Railway Technology at the Austrian Federal Ministry for Climate Action, Environment, Energy, Mobility, Innovation and Technology',
-		image: '/speakers/nina-avramovic-trnicic.webp',
-	},
-	{
-		name: 'Azra Osmancevic',
-		company:
-			'Head of Business Development at Viaplay Group, Co-founder at Justic',
-		image: '/speakers/azra-osmancevic.webp',
-	},
+const content = [
+	`We provide up-and-coming *STEM* *leaders* of *Bosnia* *and* *Herzegovina* the three key ingredients for success: *quality* *education*, *access* to *technology*, and *leadership* *development*.`,
+	`This year, we will hear the stories of *leaders* and *organisations* about how they are rethinking our present approach to global challenges, and *inspire* us to *reimagine* a more *prosperous* *future* in which we take a more active role.`,
 ];
 
 export default function Home() {
 	return (
 		<main className={`${styles.main} ${inter.className}`}>
 			<Cover />
-			<Information />
+			<Information
+				title={'ABOUT THE SUMMIT'}
+				content={content}
+				buttonLink={'/about'}
+				buttonTitle={'Learn More'}
+			/>
 			<CallToAction />
-			<Keynotes keynotes={keynotes} />
+			<Keynotes />
 			<OverlayBottom />
 		</main>
 	);
@@ -49,17 +37,15 @@ function Cover() {
 		<div className={styles.hero}>
 			<Image
 				className={styles.background}
-				src="/hero.webp"
+				src={HeroBackground}
 				alt="Futures Leaders Summit"
-				width={1920}
-				height={871}
+				priority={true}
 			/>
 			<Image
 				className={styles.image}
-				src="/hero-new.svg"
+				src={HeroLogo}
 				alt="Futures Leaders Summit"
-				width={900}
-				height={500}
+				priority={true}
 			/>
 		</div>
 	);
@@ -69,7 +55,7 @@ function OverlayBottom() {
 	return (
 		<div className={styles.hero_dynamic}>
 			<div className={styles.backgroundOverlayDecoration}>
-				<Image src="/decor.svg" alt="decor" width={1920} height={431} />
+				<Image src={BackgroundDecoration} alt="Background decoration" />
 			</div>
 		</div>
 	);

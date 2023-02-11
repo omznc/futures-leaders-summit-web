@@ -119,18 +119,18 @@
         padding: 0 10px;
         height: fit-content;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 200px;
     }
 
     .header .logo img {
-        margin-top: 50px;
-        margin-bottom: 50px;
         animation: glow 5s ease-in-out infinite;
         width: 150px;
     }
 
     .header .logo {
-        height: 120px;
+        height: 100px;
     }
 
     .header[data-enabled='true'] {
@@ -149,11 +149,13 @@
         opacity: 1;
         font-weight: bold !important;
         color: var(--theme-color);
+
     }
 
     .expand_toggle {
         display: flex;
         transition: all 0.2s ease-in-out;
+        z-index: 2;
     }
 
     .expand_toggle[data-enabled='false'] {
@@ -165,9 +167,9 @@
     }
 
     .expand_toggle[data-enabled='true'] {
-        width: 100px;
+        width: 70px;
         opacity: 1;
-        height: 100px;
+        height: 70px;
         border-radius: 50%;
         align-items: center;
         justify-content: center;
