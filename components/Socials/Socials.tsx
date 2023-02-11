@@ -8,7 +8,6 @@ import {
 } from 'react-icons/ai';
 import { IKeynote, ISocial } from '@/interfaces/interfaces';
 
-const keynotes: IKeynote[] = require('/public/placeholder-data/keynotes.json');
 const socialIcons: { [key: string]: JSX.Element } = {
 	linkedin: <AiOutlineLinkedin />,
 	twitter: <AiOutlineTwitter />,
