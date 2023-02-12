@@ -15,7 +15,7 @@ export function Keynotes() {
 			{/*</div>*/}
 			<div className={styles.keynotes}>
 				<h1 className={anton.className}>KEYNOTES</h1>
-				{keynotes.map((keynote, index) => (
+				{keynotes.map(keynote => (
 					<Keynote
 						keynote={keynote}
 						key={`${keynote.name}-${keynote.company}`}

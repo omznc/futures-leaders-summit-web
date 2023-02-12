@@ -6,7 +6,7 @@ import {
 	AiOutlineLinkedin,
 	AiOutlineTwitter,
 } from 'react-icons/ai';
-import { IKeynote, ISocial } from '@/interfaces/interfaces';
+import { ISocial } from '@/interfaces/interfaces';
 
 const socialIcons: { [key: string]: JSX.Element } = {
 	linkedin: <AiOutlineLinkedin />,
@@ -18,7 +18,7 @@ const socialIcons: { [key: string]: JSX.Element } = {
 export function Socials({ socials }: { socials: ISocial[] }) {
 	return (
 		<div className={styles.socials}>
-			{socials?.map((social, index) => (
+			{socials?.map(social => (
 				<Link href={social.link} target={'_blank'} key={social.name}>
 					<div className={styles.socialIcon}>{socialIcons[social.name]}</div>
 				</Link>
