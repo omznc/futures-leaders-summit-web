@@ -75,7 +75,7 @@ export default function handler(req: NextRequest) {
 							alignItems: 'flex-start',
 							textAlign: 'left',
 							gap: '0',
-							width: '50%',
+							width: '75%',
 						}}
 					>
 						<h1 style={{ fontSize: 50, color: '#f1dc13', fontWeight: 'bold' }}>
