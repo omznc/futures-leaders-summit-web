@@ -4,9 +4,10 @@ import { Anton } from '@next/font/google';
 import { IKeynote } from '@/interfaces/interfaces';
 import { Socials } from '@/components/Socials/Socials';
 
-const keynotes: IKeynote[] = require('/public/placeholder-data/keynotes.json');
+const keynotes: IKeynote[] = require('/public/placeholder-data/keynotes.json'); // TODO: Fetch from API
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
+// A component that receives a list of keynotes and renders them, with their socials.
 export function Keynotes() {
 	return (
 		<div className={styles.hero_dynamic}>

@@ -4,16 +4,27 @@ import Link from 'next/link';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
-export function CallToAction() {
+type CallToActionProps = {
+	title: string;
+	buttonTitle: string;
+	buttonLink: string;
+};
+
+// A component that renders a call to action bar, with a title and a button.
+export function CallToAction({
+	title,
+	buttonTitle,
+	buttonLink,
+}: CallToActionProps) {
 	return (
-		<div className={styles.cta_bar}>
+		<div className={styles.callToActionBar}>
 			<h1 className={`${styles.title} ${anton.className}`}>
-				{"DISCOVER THIS YEAR'S PROGRAM".split(' ').map(item => {
-					return <span key={item}>{item}</span>;
-				})}
+				{title.split(' ').map(item => (
+					<span key={item}>{item}</span>
+				))}
 			</h1>
 			<button>
-				<Link href="/schedule">{'See Schedule'}</Link>
+				<Link href={buttonLink}>{buttonTitle}</Link>
 			</button>
 		</div>
 	);

@@ -9,3 +9,8 @@ export interface ISocial {
 	name: 'twitter' | 'linkedin' | 'github' | 'instagram';
 	link: string;
 }
+
+export interface INavigationItem {
+	name: string;
+	url: string;
+}

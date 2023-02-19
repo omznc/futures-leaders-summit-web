@@ -6,8 +6,9 @@ import { TbArrowBarUp, TbMenu } from 'react-icons/tb';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { INavigationItem } from '@/interfaces/interfaces';
 
-const items = [
+const items: INavigationItem[] = [
 	{ name: 'Home', url: '/' },
 	{ name: 'About', url: '/about' },
 	{ name: 'Speakers', url: '/speakers' },
@@ -24,8 +25,8 @@ export default function Header() {
 	const [lastScroll, setLastScroll] = useState<number>(0);
 	const [firstLoad, setFirstLoad] = useState<boolean>(true);
 	const [headerHovered, setHeaderHovered] = useState<boolean>(false);
-	const headerRef = useRef<HTMLDivElement>(null);
 	const [isScrollingUp, setIsScrollingUp] = useState<boolean>(false);
+	const headerRef = useRef<HTMLDivElement>(null);
 	const router = useRouter();
 	const path = usePathname();
 
@@ -85,7 +86,7 @@ export default function Header() {
 				/>
 			</div>
 			<div
-				className={styles.expand_toggle}
+				className={styles.expandToggle}
 				onClick={() => setExpanded(!expanded)}
 				data-expanded={expanded}
 				data-enabled={expanded || isScrollingUp}

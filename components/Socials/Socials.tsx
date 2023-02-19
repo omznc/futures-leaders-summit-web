@@ -8,6 +8,7 @@ import {
 } from 'react-icons/ai';
 import { ISocial } from '@/interfaces/interfaces';
 
+// This is where we add new socials.
 const socialIcons: { [key: string]: JSX.Element } = {
 	linkedin: <AiOutlineLinkedin />,
 	twitter: <AiOutlineTwitter />,
@@ -15,7 +16,12 @@ const socialIcons: { [key: string]: JSX.Element } = {
 	instagram: <AiOutlineInstagram />,
 };
 
-export function Socials({ socials }: { socials: ISocial[] }) {
+type SocialsProps = {
+	socials: ISocial[];
+};
+
+// A component that receives a list of socials and renders them as clickable icons.
+export function Socials({ socials }: SocialsProps) {
 	return (
 		<div className={styles.socials}>
 			{socials?.map(social => (

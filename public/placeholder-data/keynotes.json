@@ -1,65 +1,65 @@
 [
-  {
-    "name": "Sana Alajmovic",
-    "company": "Co-Founder & CEO at Sigrid Therapeutics",
-    "image": "/speakers/sana-alajmovic.webp",
-    "socials": [
-      {
-        "name": "linkedin",
-        "link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
-      }
-    ]
-  },
-  {
-    "name": "Ivica Puljak",
-    "company": "Mayor of City of Split",
-    "image": "/speakers/ivica-puljak.webp",
-    "socials": []
-  },
-  {
-    "name": "Nina Avramovic Trninic",
-    "company": "Head of Department for Railway Technology at the Austrian Federal Ministry for Climate Action, Environment, Energy, Mobility, Innovation and Technology",
-    "image": "/speakers/nina-avramovic-trnicic.webp",
-    "socials": [
-      {
-        "name": "linkedin",
-        "link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
-      },
-      {
-        "name": "twitter",
-        "link": "https://twitter.com/ninaavramovic"
-      },
-      {
-        "name": "instagram",
-        "link": "https://www.facebook.com/nina.avramovic.9"
-      },
-      {
-        "name": "github",
-        "link": "https://www.facebook.com/nina.avramovic.9"
-      },
-      {
-        "name": "linkedin",
-        "link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
-      },
-      {
-        "name": "twitter",
-        "link": "https://twitter.com/ninaavramovic"
-      },
-      {
-        "name": "instagram",
-        "link": "https://www.facebook.com/nina.avramovic.9"
-      }
-    ]
-  },
-  {
-    "name": "Azra Osmancevic",
-    "company": "Head of Business Development at Viaplay Group, Co-founder at Justic",
-    "image": "/speakers/azra-osmancevic.webp",
-    "socials": [
-      {
-        "name": "linkedin",
-        "link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
-      }
-    ]
-  }
+	{
+		"name": "Sana Alajmovic",
+		"company": "Co-Founder & CEO at Sigrid Therapeutics",
+		"image": "/speakers/sana-alajmovic.webp",
+		"socials": [
+			{
+				"name": "linkedin",
+				"link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
+			}
+		]
+	},
+	{
+		"name": "Ivica Puljak",
+		"company": "Mayor of City of Split",
+		"image": "/speakers/ivica-puljak.webp",
+		"socials": []
+	},
+	{
+		"name": "Nina Avramovic Trninic",
+		"company": "Head of Department for Railway Technology at the Austrian Federal Ministry for Climate Action, Environment, Energy, Mobility, Innovation and Technology",
+		"image": "/speakers/nina-avramovic-trnicic.webp",
+		"socials": [
+			{
+				"name": "linkedin",
+				"link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
+			},
+			{
+				"name": "twitter",
+				"link": "https://twitter.com/ninaavramovic"
+			},
+			{
+				"name": "instagram",
+				"link": "https://www.facebook.com/nina.avramovic.9"
+			},
+			{
+				"name": "github",
+				"link": "https://www.facebook.com/nina.avramovic.9"
+			},
+			{
+				"name": "linkedin",
+				"link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
+			},
+			{
+				"name": "twitter",
+				"link": "https://twitter.com/ninaavramovic"
+			},
+			{
+				"name": "instagram",
+				"link": "https://www.facebook.com/nina.avramovic.9"
+			}
+		]
+	},
+	{
+		"name": "Azra Osmancevic",
+		"company": "Head of Business Development at Viaplay Group, Co-founder at Justic",
+		"image": "/speakers/azra-osmancevic.webp",
+		"socials": [
+			{
+				"name": "linkedin",
+				"link": "https://www.linkedin.com/in/sana-alajmovic-0b0b2a1/"
+			}
+		]
+	}
 ]

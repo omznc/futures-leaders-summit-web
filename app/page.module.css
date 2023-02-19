@@ -1,141 +1,140 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100vh;
-    background: var(--primary-gray);
-    position: relative;
-    z-index: 1;
-    margin-bottom: 500px;
-    overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 100vh;
+	background: var(--primary-gray);
+	position: relative;
+	z-index: 1;
+	margin-bottom: 500px;
+	overflow: hidden;
 }
 
 .hero {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    padding: 0 2.5rem;
-    gap: 5rem;
-    user-select: none;
-    transition: all 0.2s ease-in-out;
-    background-color: var(--primary-gray);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	padding: 0 2.5rem;
+	gap: 5rem;
+	user-select: none;
+	transition: all 0.2s ease-in-out;
+	background-color: var(--primary-gray);
 }
 
 .hero_dynamic {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: fit-content;
-    text-align: center;
-    min-height: 80vh;
-    z-index: 2;
-    padding: 0 2.5rem;
-    gap: 5rem;
-    user-select: none;
-    transition: all 0.2s ease-in-out;
-    background-color: var(--primary-gray);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: fit-content;
+	text-align: center;
+	min-height: 80vh;
+	z-index: 2;
+	padding: 0 2.5rem;
+	gap: 5rem;
+	user-select: none;
+	transition: all 0.2s ease-in-out;
+	background-color: var(--primary-gray);
 }
 
 .hero .image {
-    opacity: 0;
-    width: 100%;
-    height: auto;
-    max-height: 50vh;
-    transition: all 0.1s ease-out;
-    animation: fadein 0.5s forwards 0.5s;
-    z-index: 3;
+	opacity: 0;
+	width: 100%;
+	height: auto;
+	max-height: 50vh;
+	transition: all 0.1s ease-out;
+	animation: fadein 0.5s forwards 0.5s;
+	z-index: 3;
 }
 
-
 .hero .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 3;
-    object-fit: cover;
-    overflow: hidden;
-    filter: blur(1px) grayscale(0.9) brightness(0.5) hue-rotate(180deg) sepia(0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 3;
+	object-fit: cover;
+	overflow: hidden;
+	filter: blur(1px) grayscale(0.9) brightness(0.5) hue-rotate(180deg) sepia(0.2);
 }
 
 /* Background logo overlays */
 .backgroundOverlayFlipped {
-    position: absolute;
-    left: 0;
-    z-index: 0;
-    scale: 1.8;
-    transform-origin: left;
-    overflow: hidden;
+	position: absolute;
+	left: 0;
+	z-index: 0;
+	scale: 1.8;
+	transform-origin: left;
+	overflow: hidden;
 }
 
 .backgroundOverlayDecoration {
-    position: absolute;
-    bottom: -2vh;
-    z-index: -1;
-    transform-origin: center center;
-    overflow: hidden;
+	position: absolute;
+	bottom: -2vh;
+	z-index: -1;
+	transform-origin: center center;
+	overflow: hidden;
 }
 
 .backgroundOverlayDecoration img {
-    width: 100vw;
-    height: auto;
-    object-fit: cover;
+	width: 100vw;
+	height: auto;
+	object-fit: cover;
 }
 
 /* Desktop-only effects */
 @media screen and (min-width: 1050px) {
-    .hero .background {
-        animation: border-in 1s ease-out;
-    }
+	.hero .background {
+		animation: border-in 1s ease-out;
+	}
 }
 
 /* Mobile */
 @media screen and (max-width: 1050px) {
-    .hero {
-        padding-top: 5rem;
-        flex-direction: column;
-        gap: 2rem;
-    }
+	.hero {
+		padding-top: 5rem;
+		flex-direction: column;
+		gap: 2rem;
+	}
 }
 
 /* Animations */
 @keyframes glow {
-    0% {
-        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
-    }
+	0% {
+		filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
+	}
 
-    50% {
-        filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.3));
-    }
+	50% {
+		filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.3));
+	}
 
-    100% {
-        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
-    }
+	100% {
+		filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
+	}
 }
 
 @keyframes border-in {
-    0% {
-        border: black solid 10rem;
-    }
-    100% {
-        border: black solid 0;
-    }
+	0% {
+		border: black solid 10rem;
+	}
+	100% {
+		border: black solid 0;
+	}
 }
 
 @keyframes fadein {
-    0% {
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	0% {
+		transform: translateY(50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

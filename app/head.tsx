@@ -1,15 +1,17 @@
+const year = new Date().getFullYear().toString().slice(-2);
+
 export default function Head() {
 	return (
 		<>
 			{/*<!-- Primary Meta Tags -->*/}
 			<meta name="title" content="Futures Leaders Summit '22" />
-			<title>{"Futures Leaders Summit '22"}</title>
-
+			<title>{`Futures Leaders Summit '${year}`}</title>
 			<meta
 				name="description"
 				content="Futures Leaders Summit is an event that annually gathers prosperous changemakers in the field of STEM."
 			/>
-			<link rel="icon" href="favicon.ico" />
+			<link rel="icon" href="/public/favicon.ico" />
+			<meta name="language" content="English" />
 
 			{/*<!-- Facebook Meta Tags -->*/}
 			<meta property="og:url" content="https://www.fls.ba" />

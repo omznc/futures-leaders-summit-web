@@ -1,38 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Futures Leaders Summit
 
-## Getting Started
+Created with Typescript, Next.js 13, and Node.js 19.
 
-First, run the development server:
+My reasoning behind the rewrite was to stay more up-to-date with the most current tools we were already using, and to
+distance ourselves from miscellaneous dependencies that were not being maintained, by creating our own implementations
+of them.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+This project a single non-development external dependency (react-icons), and
+keeping it that way is a goal we should strive for.
+
+## FLS Contribution Guide
+
+### Components
+
+Components are stored in the `components` directory.
+
+Each component has its own folder, and may contain subcomponents if
+they're only used in that component, and are non-atomic.
+An example would be the `Keynotes` component that contains
+the `Keynote` component. Do not create a subcomponent as a separate file.
+
+The following would be the example setup for a component named `Footer`
+
+```
+components
+└── Footer
+    ├── Footer.js
+    ├── Footer.module.css
+    └── readme.md (optional, but useful for documentation)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Stylesheets use CSS Modules, and are stored next to the component they're used in. The stylesheet should be named the
+same as the component, with the `.module.css` extension, and should be imported as `styles` in the component.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The following is an example of a component named `Footer` with a stylesheet.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```typescript
+import styles from './Footer.module.css';
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+If a component accepts props, create a type for the prop before using it. The type should be named the same as the
+component, with the `Props` suffix.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```typescript
+type FooterProps = {
+	// ...
+};
 
-## Learn More
+export default function Footer({ ... }: FooterProps) {
+	// ...
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Pages
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pages are stored in the `app` directory. **The `pages` directory is only used for the API.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Be sure to read up on Next.js 13's routing system to understand how to use
+the `app` directory: https://beta.nextjs.org/docs/getting-started#features-overview
 
-## Deploy on Vercel
+### Interfaces
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Interfaces are stored in the `interfaces` directory. The naming convention is `I` followed by `<Name>`, where `<Name>`
+is
+the name of the interface. For example, `IUser`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+TODO: Figure out how to group interfaces into files. The current implementation stores them in a single `interfaces.ts`
+file.
+
+### Media
+
+Media is stored in the `public` directory. All images should be in the `.webp` format, and should be compressed, but not
+destroyed.
+
+All icons are provided by the `react-icons` library, and can be found here: https://react-icons.github.io/react-icons/,
+and custom icons or logos should be vectors (SVGs).
