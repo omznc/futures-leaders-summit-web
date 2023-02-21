@@ -50,7 +50,7 @@ src
 └── components
     └── Footer
         ├── Footer.tsx
-        └── Footer.module.css
+        ├── Footer.module.css
         └── readme.md (optional, but useful for documentation)
 ```
 
