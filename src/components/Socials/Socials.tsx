@@ -6,7 +6,7 @@ import {
 	AiOutlineLinkedin,
 	AiOutlineTwitter,
 } from 'react-icons/ai';
-import { ISocial } from '@/interfaces/interfaces';
+import { ISocial } from '@interfaces/interfaces';
 
 // This is where we add new socials.
 const socialIcons: { [key: string]: JSX.Element } = {

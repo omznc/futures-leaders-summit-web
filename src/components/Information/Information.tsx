@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Anton } from '@next/font/google';
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import Hex from '@/public/hex.svg';
+import Hex from '@public/hex.svg';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 

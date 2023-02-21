@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import styles from './page.module.css';
-import { CallToAction } from '@/components/CallToAction/CallToAction';
-import { Information } from '@/components/Information/Information';
-import { Keynotes } from '@/components/Keynotes/Keynotes';
-import HeroBackground from '@/public/hero.webp';
-import HeroLogo from '@/public/hero.svg';
-import BackgroundDecoration from '@/public/decor.svg';
+import { CallToAction } from '@components/CallToAction/CallToAction';
+import { Information } from '@components/Information/Information';
+import { Keynotes } from '@components/Keynotes/Keynotes';
+import HeroBackground from '@public/hero.webp';
+import HeroLogo from '@public/hero.svg';
+import BackgroundDecoration from '@public/decor.svg';
 
 const inter = Inter({ subsets: ['latin'] });
 

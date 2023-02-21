@@ -6,7 +6,7 @@ import { TbArrowBarUp, TbMenu } from 'react-icons/tb';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { INavigationItem } from '@/interfaces/interfaces';
+import { INavigationItem } from '@interfaces/interfaces';
 
 const items: INavigationItem[] = [
 	{ name: 'Home', url: '/' },
