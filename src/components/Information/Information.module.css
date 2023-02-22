@@ -1,0 +1,144 @@
+.hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: fit-content;
+    text-align: center;
+    min-height: 80vh;
+    z-index: 2;
+    padding: 0 2.5rem;
+    gap: 5rem;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--primary-gray);
+}
+
+.backgroundOverlay {
+    position: absolute;
+    right: 0;
+    z-index: 0;
+    scale: 1.8;
+    transform-origin: right;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding: 5rem 5rem;
+    z-index: 999;
+}
+
+.content .title {
+    font-size: 3rem;
+    font-weight: 700;
+    width: 50%;
+    color: var(--theme-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.content .description {
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 50%;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.content .description p span {
+    transition: all 0.2s ease-in-out;
+}
+
+.content button {
+    border-radius: 200px;
+    background-color: var(--theme-color);
+    color: black;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+
+/* Desktop-only effects*/
+@media screen and (min-width: 1050px) {
+    .content button:hover {
+        background-color: var(--theme-color);
+        color: black;
+        cursor: pointer;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2)) brightness(1.4);
+        scale: 1.02;
+        animation: glow 2s infinite;
+    }
+
+    .content button:active {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        scale: 0.95;
+    }
+
+    .content .title:hover {
+        animation: glow 2s infinite;
+    }
+
+    .content .description p:hover span {
+        color: var(--theme-color);
+        animation: glow 2s infinite;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 1050px) {
+    .content button {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .content a {
+        align-self: center;
+
+    }
+
+    .content {
+        padding: 5rem 1rem;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .content .title {
+        width: 100%;
+        animation: glow 2s infinite;
+    }
+
+    .content .description {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.3));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.1));
+    }
+}

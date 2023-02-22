@@ -1,19 +1,40 @@
 # Futures Leaders Summit
 
-Created with Typescript, Next.js 13, and Node.js 19.
-
 My reasoning behind the rewrite was to stay more up-to-date with the most current tools we were already using, and to
 distance ourselves from miscellaneous dependencies that were not being maintained, by creating our own implementations
 of them.
 
-This project a single non-development external dependency (react-icons), and
-keeping it that way is a goal we should strive for.
+This project tries to minimize the amount of dependencies we use, and tries to use the most up-to-date versions of the
+ones we do.
 
 ## FLS Contribution Guide
 
+---
+
+The actual code is in the `src` directory, and the `public` directory is used for media.
+
+Every folder in the `src` directory has a Typescript import alias, and is aliased to the `src` directory.
+Here's an example:
+
+```typescript
+import Footer from '@components/Footer';
+import SomeImage from '@public/some-image.webp';
+import ISomeInterface from '@interfaces/ISomeInterface';
+```
+
+can be used instead of
+
+```typescript
+import Footer from '../../components/Footer';
+import SomeImage from '../../../../public/some-image.webp';
+import ISomeInterface from '../interfaces/ISomeInterface';
+```
+
 ### Components
 
-Components are stored in the `components` directory.
+---
+
+Components are stored in the `src/components` directory.
 
 Each component has its own folder, and may contain subcomponents if
 they're only used in that component, and are non-atomic.
@@ -23,17 +44,21 @@ the `Keynote` component. Do not create a subcomponent as a separate file.
 The following would be the example setup for a component named `Footer`
 
 ```
-components
-└── Footer
-    ├── Footer.js
-    ├── Footer.module.css
-    └── readme.md (optional, but useful for documentation)
+src
+└── components
+    └── Footer
+        ├── Footer.tsx
+        ├── Footer.module.css
+        └── readme.md (optional, but useful for documentation)
 ```
 
 Stylesheets use CSS Modules, and are stored next to the component they're used in. The stylesheet should be named the
 same as the component, with the `.module.css` extension, and should be imported as `styles` in the component.
 
-The following is an example of a component named `Footer` with a stylesheet.
+If you're using more than 1 class in an element, use `[styles.class1, styles.class2].join(' ')` to join the classes
+together, instead of `${styles.class1} ${styles.class2}`, as it's easier to modify.
+
+The following is an example of a component named`Footer` with a stylesheet.
 
 ```typescript
 import styles from './Footer.module.css';
@@ -54,14 +79,20 @@ export default function Footer({ ... }: FooterProps) {
 
 ### Pages
 
-Pages are stored in the `app` directory. **The `pages` directory is only used for the API.**
+---
+
+Pages are stored in the `src/app` (`@app`) directory. **The `src/pages` (`@pages`) directory is only used for the API.**
 
 Be sure to read up on Next.js 13's routing system to understand how to use
 the `app` directory: https://beta.nextjs.org/docs/getting-started#features-overview
 
 ### Interfaces
 
-Interfaces are stored in the `interfaces` directory. The naming convention is `I` followed by `<Name>`, where `<Name>`
+---
+
+Interfaces are stored in the `src/interfaces` (`@interfaces`) directory. The naming convention is `I` followed
+by `<Name>`,
+where `<Name>`
 is
 the name of the interface. For example, `IUser`.
 
@@ -70,7 +101,10 @@ file.
 
 ### Media
 
-Media is stored in the `public` directory. All images should be in the `.webp` format, and should be compressed, but not
+---
+
+Media is stored in the `public` (`@public`) directory. All images should be in the `.webp` format, and should be
+compressed, but not
 destroyed.
 
 All icons are provided by the `react-icons` library, and can be found here: https://react-icons.github.io/react-icons/,
