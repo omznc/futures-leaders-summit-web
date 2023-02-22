@@ -30,8 +30,6 @@ import ISomeInterface from '../interfaces/ISomeInterface';
 
 ### Components
 
----
-
 Components are stored in the `src/components` directory.
 
 Each component has its own folder, and may contain subcomponents if
@@ -77,16 +75,12 @@ export default function Footer({ ... }: FooterProps) {
 
 ### Pages
 
----
-
 Pages are stored in the `src/app` (`@app`) directory. **The `src/pages` (`@pages`) directory is only used for the API.**
 
 Be sure to read up on Next.js 13's routing system to understand how to use
 the `app` directory: https://beta.nextjs.org/docs/getting-started#features-overview
 
 ### Interfaces
-
----
 
 Interfaces are stored in the `src/interfaces` (`@interfaces`) directory. The naming convention is `I` followed
 by `<Name>`,
@@ -98,8 +92,6 @@ TODO: Figure out how to group interfaces into files. The current implementation 
 file.
 
 ### Media
-
----
 
 Media is stored in the `public` (`@public`) directory. All images should be in the `.webp` format, and should be
 compressed, but not
