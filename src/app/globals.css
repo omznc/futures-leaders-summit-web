@@ -1,6 +1,5 @@
 :root {
     --border-radius: 12px;
-    --font-color: #e0e0e0;
     --theme-color: #f1dc13;
     --primary-gray: #070e12;
     --secondary-gray: #0a131a;
@@ -20,7 +19,7 @@ body {
 }
 
 body {
-    color: var(--font-color);
+    color: white;
     background-color: var(--primary-gray);
 }
 

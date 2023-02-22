@@ -9,8 +9,8 @@ const anton = Anton({ weight: '400', subsets: ['latin'] });
 
 type InformationProps = {
 	title: string;
-	buttonTitle: string;
-	buttonLink: string;
+	buttonTitle?: string;
+	buttonLink?: string;
 	children?: ReactNode;
 };
 
@@ -21,12 +21,13 @@ export function Information({
 	buttonLink,
 	children,
 }: InformationProps) {
+	const shouldRenderButton = buttonLink && buttonTitle;
 	return (
 		<div className={styles.hero}>
 			<div className={styles.content}>
 				<h1 className={[styles.title, anton.className].join(' ')}>{title}</h1>
 				<div className={styles.description}>{children}</div>
-				{buttonTitle && buttonLink && (
+				{shouldRenderButton && (
 					<Link href={buttonLink}>
 						<button>{buttonTitle}</button>
 					</Link>

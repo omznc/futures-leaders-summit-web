@@ -18,7 +18,7 @@ export function CallToAction({
 }: CallToActionProps) {
 	return (
 		<div className={styles.callToActionBar}>
-			<h1 className={`${styles.title} ${anton.className}`}>
+			<h1 className={[styles.title, anton.className].join(' ')}>
 				{title.split(' ').map(item => (
 					<span key={item}>{item}</span>
 				))}

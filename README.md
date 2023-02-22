@@ -1,13 +1,11 @@
 # Futures Leaders Summit
 
-Created with **Typescript**, **Next.js 13**, and **Node.js 19**.
-
 My reasoning behind the rewrite was to stay more up-to-date with the most current tools we were already using, and to
 distance ourselves from miscellaneous dependencies that were not being maintained, by creating our own implementations
 of them.
 
-This project has a single non-development external dependency (`react-icons`), and
-keeping those to a minimum is a goal of this project.
+This project tries to minimize the amount of dependencies we use, and tries to use the most up-to-date versions of the
+ones we do.
 
 ## FLS Contribution Guide
 
@@ -28,8 +26,8 @@ can be used instead of
 
 ```typescript
 import Footer from '../../components/Footer';
-import SomeImage from '../../public/some-image.webp';
-import ISomeInterface from '../../interfaces/ISomeInterface';
+import SomeImage from '../../../../public/some-image.webp';
+import ISomeInterface from '../interfaces/ISomeInterface';
 ```
 
 ### Components
@@ -57,7 +55,10 @@ src
 Stylesheets use CSS Modules, and are stored next to the component they're used in. The stylesheet should be named the
 same as the component, with the `.module.css` extension, and should be imported as `styles` in the component.
 
-The following is an example of a component named `Footer` with a stylesheet.
+If you're using more than 1 class in an element, use `[styles.class1, styles.class2].join(' ')` to join the classes
+together, instead of `${styles.class1} ${styles.class2}`, as it's easier to modify.
+
+The following is an example of a component named`Footer` with a stylesheet.
 
 ```typescript
 import styles from './Footer.module.css';

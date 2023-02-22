@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
 	return (
-		<main className={`${styles.main} ${inter.className}`}>
+		<main className={[styles.main, inter.className].join(' ')}>
 			<Cover />
 			<Information
 				title={'ABOUT THE SUMMIT'}
@@ -40,6 +40,8 @@ export default function Home() {
 				buttonTitle={'See Schedule'}
 				buttonLink={'/schedule'}
 			/>
+			{/* Async components aren't supported by TS, yet. */}
+			{/* @ts-expect-error Server Component */}
 			<Keynotes />
 			<OverlayBottom />
 		</main>
@@ -52,13 +54,13 @@ function Cover() {
 			<Image
 				className={styles.background}
 				src={HeroBackground}
-				alt="Futures Leaders Summit"
+				alt="Background image. Blurred image of a person in a suit giving a speech"
 				priority={true}
 			/>
 			<Image
 				className={styles.image}
 				src={HeroLogo}
-				alt="Futures Leaders Summit"
+				alt="Futures Leaders Summit information"
 				priority={true}
 			/>
 		</div>
@@ -67,7 +69,7 @@ function Cover() {
 
 function OverlayBottom() {
 	return (
-		<div className={styles.hero_dynamic}>
+		<div className={styles.heroDynamic}>
 			<div className={styles.backgroundOverlayDecoration}>
 				<Image src={BackgroundDecoration} alt="Background decoration" />
 			</div>
