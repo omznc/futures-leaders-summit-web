@@ -7,9 +7,7 @@ of them.
 This project tries to minimize the amount of dependencies we use, and tries to use the most up-to-date versions of the
 ones we do.
 
-## FLS Contribution Guide
-
----
+## Contribution Guide
 
 The actual code is in the `src` directory, and the `public` directory is used for media.
 
