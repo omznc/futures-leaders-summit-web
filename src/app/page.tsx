@@ -1,14 +1,16 @@
 import Image from 'next/image';
-import { Inter } from '@next/font/google';
+import { Inter, Oswald } from '@next/font/google';
 import styles from './page.module.css';
 import { CallToAction } from '@components/CallToAction/CallToAction';
 import { Information } from '@components/Information/Information';
 import { Keynotes } from '@components/Keynotes/Keynotes';
 import HeroBackground from '@public/hero.webp';
 import HeroLogo from '@public/logos/logo-stem.svg';
-import BackgroundDecoration from '@public/decor.svg';
+import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 
 const inter = Inter({ subsets: ['latin'] });
+const oswald = Oswald({ subsets: ['latin'] });
+
 export default function Page() {
 	return (
 		<main className={[styles.main, inter.className].join(' ')}>
@@ -63,16 +65,6 @@ function Cover() {
 				alt="Futures Leaders Summit information"
 				priority={true}
 			/>
-		</div>
-	);
-}
-
-function OverlayBottom() {
-	return (
-		<div className={styles.heroDynamic}>
-			<div className={styles.backgroundOverlayDecoration}>
-				<Image src={BackgroundDecoration} alt="Background decoration" />
-			</div>
 		</div>
 	);
 }

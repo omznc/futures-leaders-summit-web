@@ -62,7 +62,6 @@ export default function Header() {
 				Math.ceil(window.innerHeight + window.scrollY + 200) >=
 				document.documentElement.scrollHeight;
 			if (bottom !== scrolledToBottom) setScrolledToBottom(bottom);
-			console.log(bottom);
 		};
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		return () => window.removeEventListener('scroll', handleScroll);

@@ -5,7 +5,6 @@ import LogoBHFF from '@public/logos/logo-bhff.svg';
 import Image from 'next/image';
 import { Button } from '@components/Button/Button';
 import { IPayment, ISocial } from '@interfaces/interfaces';
-
 import PayPal from '@public/logos/payment-services/paypal.svg';
 import Mastercard from '@public/logos/payment-services/mastercard.svg';
 import Visa from '@public/logos/payment-services/visa.svg';

@@ -77,17 +77,23 @@
 
 .backgroundOverlayDecoration {
     position: absolute;
-    bottom: -2vh;
+    bottom: 0;
     z-index: -1;
     transform-origin: center center;
     overflow: hidden;
 }
 
-.backgroundOverlayDecoration img {
-    width: 100vw;
-    height: auto;
-    object-fit: cover;
+.backgroundOverlayDecoration h1 {
+    font-weight: 900;
+    font-size: 23vw;
+    white-space: nowrap;
+    opacity: 0.05;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.1);
+    animation: glow 2s ease-in-out infinite;
+    margin-bottom: -10vw;
+    padding: 0;
 }
+
 
 /* Desktop-only effects */
 @media screen and (min-width: 1050px) {
