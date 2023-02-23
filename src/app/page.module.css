@@ -109,6 +109,10 @@
         flex-direction: column;
         gap: 2rem;
     }
+
+    .main {
+        margin-bottom: 100vh;
+    }
 }
 
 /* Animations */

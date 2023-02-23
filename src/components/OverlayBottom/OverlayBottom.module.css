@@ -7,7 +7,7 @@
     height: fit-content;
     text-align: center;
     min-height: 20vh;
-    z-index: 2;
+    z-index: 1;
     padding: 0 2.5rem;
     gap: 5rem;
     user-select: none;
@@ -17,7 +17,7 @@
 
 .backgroundOverlayDecoration {
     position: absolute;
-    z-index: -1;
+    z-index: -2;
     bottom: -18vw;
     transform-origin: center center;
     overflow: hidden;
