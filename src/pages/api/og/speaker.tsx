@@ -45,7 +45,6 @@ export default function handler(req: NextRequest) {
 						flexDirection: 'row',
 						flexWrap: 'nowrap',
 						gap: '50px',
-						border: '20px solid #f1dc13',
 					}}
 				>
 					<div
@@ -54,6 +53,8 @@ export default function handler(req: NextRequest) {
 							alignItems: 'center',
 							justifyContent: 'center',
 							justifyItems: 'center',
+							marginLeft: '10%',
+							marginTop: '-15%',
 						}}
 					>
 						<img
@@ -75,13 +76,41 @@ export default function handler(req: NextRequest) {
 							alignItems: 'flex-start',
 							textAlign: 'left',
 							gap: '0',
-							width: '75%',
+							width: '55%',
+							marginTop: '-15%',
 						}}
 					>
 						<h1 style={{ fontSize: 50, color: '#f1dc13', fontWeight: 'bold' }}>
 							{title}
 						</h1>
 						<p style={{ fontSize: 30, marginTop: 0 }}>{description}</p>
+					</div>
+					<div
+						style={{
+							position: 'absolute',
+							bottom: '5%',
+							right: '5%',
+							left: '5%',
+							width: '100%',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+						}}
+					>
+						<img
+							alt="Vercel"
+							src={
+								'https://futures-leaders-summit-web.vercel.app/_next/static/media/logo-fls.4507a0c0.svg'
+							}
+							width={250}
+						/>
+						<img
+							alt="Vercel"
+							src={
+								'https://futures-leaders-summit-web.vercel.app/_next/static/media/logo-bhff.37b7b41f.svg'
+							}
+							width={250}
+						/>
 					</div>
 				</div>
 			),

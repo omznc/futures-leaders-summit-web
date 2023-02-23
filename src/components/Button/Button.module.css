@@ -1,57 +1,56 @@
-
-.button[data-button-style="yellow"] {
-    --background-color: var(--theme-color);
-    --text-color: black;
+.button[data-button-style='yellow'] {
+	--background-color: var(--theme-color);
+	--text-color: black;
 }
 
-.button[data-button-style="white"] {
-    --background-color: white;
-    --text-color: black;
+.button[data-button-style='white'] {
+	--background-color: white;
+	--text-color: black;
 }
 
-.button[data-button-style="black"] {
-    --background-color: black;
-    --text-color: var(--theme-color);
+.button[data-button-style='black'] {
+	--background-color: black;
+	--text-color: var(--theme-color);
 }
 
 .button a {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-    padding: 1rem 2rem;
-    cursor: pointer;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: inherit;
+	padding: 1rem 2rem;
+	cursor: pointer;
 }
 
 .button {
-    border-radius: 200px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-size: 1.5rem;
-    border: none;
-    transition: all 0.2s ease-in-out;
-    white-space: nowrap;
-    box-sizing: border-box;
-    width: fit-content;
+	border-radius: 200px;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-size: 1.5rem;
+	border: none;
+	transition: all 0.2s ease-in-out;
+	white-space: nowrap;
+	box-sizing: border-box;
+	width: fit-content;
 }
 
 /* Desktop-only effects*/
 @media screen and (min-width: 1050px) {
-    .button:hover {
-        filter: brightness(150%) !important;
-        scale: 1.02;
-    }
+	.button:hover {
+		filter: brightness(150%) !important;
+		scale: 1.02;
+	}
 
-    .button:active {
-        filter: brightness(95%) !important;
-        scale: 0.95;
-    }
+	.button:active {
+		filter: brightness(95%) !important;
+		scale: 0.95;
+	}
 }
 
 /* Mobile */
 @media screen and (max-width: 1050px) {
-    .button {
-        font-size: 1rem;
-    }
+	.button {
+		font-size: 1rem;
+	}
 }

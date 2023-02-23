@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Inter, Oswald } from '@next/font/google';
+import { Inter } from '@next/font/google';
 import styles from './page.module.css';
 import { CallToAction } from '@components/CallToAction/CallToAction';
 import { Information } from '@components/Information/Information';
@@ -9,7 +9,6 @@ import HeroLogo from '@public/logos/logo-stem.svg';
 import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 
 const inter = Inter({ subsets: ['latin'] });
-const oswald = Oswald({ subsets: ['latin'] });
 
 export default function Page() {
 	return (

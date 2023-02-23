@@ -1,5 +1,7 @@
-const year = new Date().getFullYear().toString().slice(-2);
-export const title = `Futures Leaders Summit '${year}`;
+export const title = `Futures Leaders Summit '${new Date()
+	.getFullYear()
+	.toString()
+	.slice(-2)}`;
 export const description =
 	'Futures Leaders Summit is an event that annually ' +
 	'gathers prosperous changemakers in the field of STEM.';

@@ -1,184 +1,184 @@
 .heroDynamic {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: fit-content;
-    text-align: center;
-    min-height: 80vh;
-    z-index: 2;
-    padding: 0 2.5rem;
-    gap: 5rem;
-    user-select: none;
-    transition: all 0.2s ease-in-out;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: fit-content;
+	text-align: center;
+	min-height: 80vh;
+	z-index: 2;
+	padding: 0 2.5rem;
+	gap: 5rem;
+	user-select: none;
+	transition: all 0.2s ease-in-out;
 }
 
 .keynotes {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 5rem 5rem;
-    transition: all 0.2s ease-in-out;
-    z-index: 999;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 5rem 5rem;
+	transition: all 0.2s ease-in-out;
+	z-index: 999;
 }
 
 .keynotes h1 {
-    flex: 1 1 100%;
-    text-align: left;
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
-    color: var(--theme-color);
+	flex: 1 1 100%;
+	text-align: left;
+	font-size: 3rem;
+	margin-bottom: 3rem;
+	margin-top: 3rem;
+	color: var(--theme-color);
 }
 
 .keynote {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    height: fit-content;
-    max-width: 700px;
-    aspect-ratio: 2/1;
-    flex: 50%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	height: fit-content;
+	max-width: 700px;
+	aspect-ratio: 2/1;
+	flex: 50%;
 }
 
 .keynote .details {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    padding: 2rem;
-    gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	text-align: left;
+	width: 100%;
+	padding: 2rem;
+	gap: 1rem;
 }
 
 .keynote .details h2 {
-    font-size: 1.5rem;
-    font-weight: normal;
-    transition: all 0.2s ease-in-out;
+	font-size: 1.5rem;
+	font-weight: normal;
+	transition: all 0.2s ease-in-out;
 }
 
 .keynote .details p {
-    font-size: 1rem;
-    font-weight: normal;
-    opacity: 0.8;
-    transition: all 0.2s ease-in-out;
+	font-size: 1rem;
+	font-weight: normal;
+	opacity: 0.8;
+	transition: all 0.2s ease-in-out;
 }
 
 .keynote:hover .details p {
-    opacity: 1;
+	opacity: 1;
 }
 
 .hexagon {
-    display: block;
-    position: relative;
-    height: 200px;
-    width: auto;
-    aspect-ratio: 1/1.154;
-    box-sizing: border-box;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    transition: all 0.2s ease-in-out;
+	display: block;
+	position: relative;
+	height: 200px;
+	width: auto;
+	aspect-ratio: 1/1.154;
+	box-sizing: border-box;
+	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	transition: all 0.2s ease-in-out;
 }
 
 .keynote img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    scale: 1.1;
-    object-fit: cover;
-    left: 0;
-    top: 0;
-    filter: grayscale(1);
-    transition: all 0.2s ease-out;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	scale: 1.1;
+	object-fit: cover;
+	left: 0;
+	top: 0;
+	filter: grayscale(1);
+	transition: all 0.2s ease-out;
 }
 
 /* Desktop-only effects */
 @media screen and (min-width: 1050px) {
-    .keynote:hover .hexagon {
-        scale: 1.05;
-    }
+	.keynote:hover .hexagon {
+		scale: 1.05;
+	}
 
-    .keynote:hover img {
-        filter: grayscale(0);
-        scale: 1;
-    }
+	.keynote:hover img {
+		filter: grayscale(0);
+		scale: 1;
+	}
 
-    .keynote:hover .details h2 {
-        font-weight: bolder;
-    }
+	.keynote:hover .details h2 {
+		font-weight: bolder;
+	}
 }
 
 /* Mobile */
 @media screen and (max-width: 1050px) {
-    .keynotes {
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 2rem 0.5rem;
-    }
+	.keynotes {
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding: 2rem 0.5rem;
+	}
 
-    .keynotes h1 {
-        text-align: center;
-    }
+	.keynotes h1 {
+		text-align: center;
+	}
 
-    .keynote .details h2 {
-        font-weight: bold;
-    }
+	.keynote .details h2 {
+		font-weight: bold;
+	}
 
-    .keynote {
-        border-top: 1px solid rgba(255, 255, 255, 0.51);
-    }
+	.keynote {
+		border-top: 1px solid rgba(255, 255, 255, 0.51);
+	}
 
-    .keynote img {
-        filter: grayscale(0);
-    }
+	.keynote img {
+		filter: grayscale(0);
+	}
 
-    .keynote .details {
-        padding-right: 0;
-    }
+	.keynote .details {
+		padding-right: 0;
+	}
 
-    .keynote .details h2 {
-        font-size: 1rem;
-    }
+	.keynote .details h2 {
+		font-size: 1rem;
+	}
 
-    .keynote .details p {
-        font-size: 0.8rem;
-    }
+	.keynote .details p {
+		font-size: 0.8rem;
+	}
 
-    .hexagon {
-        height: 100px;
-        align-self: flex-start;
-        margin-top: 2rem;
-    }
+	.hexagon {
+		height: 100px;
+		align-self: flex-start;
+		margin-top: 2rem;
+	}
 }
 
 /* Tablets */
 @media screen and (min-width: 488px) and (max-width: 1050px) {
-    .keynote {
-        flex: 100%;
-        width: 100%;
-        border: none;
-    }
+	.keynote {
+		flex: 100%;
+		width: 100%;
+		border: none;
+	}
 
-    .keynotes h1 {
-        text-align: left;
-    }
+	.keynotes h1 {
+		text-align: left;
+	}
 
-    .keynote .details h2 {
-        font-size: 1.5rem;
-    }
+	.keynote .details h2 {
+		font-size: 1.5rem;
+	}
 
-    .keynote .details p {
-        font-size: 1rem;
-    }
+	.keynote .details p {
+		font-size: 1rem;
+	}
 
-    .hexagon {
-        height: 200px;
-        align-self: center;
-    }
+	.hexagon {
+		height: 200px;
+		align-self: center;
+	}
 }

@@ -28,7 +28,12 @@ export function Socials({ socials, theme = 'white' }: SocialsProps) {
 	return (
 		<div className={styles.socials}>
 			{socials?.map(social => (
-				<Link href={social.link} target={'_blank'} key={social.name}>
+				<Link
+					href={social.link}
+					target={'_blank'}
+					key={social.name}
+					title={social.name}
+				>
 					<div className={styles.socialIcon} data-icon-theme={theme}>
 						{socialIcons[social.name]}
 					</div>

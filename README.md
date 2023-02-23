@@ -80,6 +80,15 @@ Pages are stored in the `src/app` (`@app`) directory. **The `src/pages` (`@pages
 Be sure to read up on Next.js 13's routing system to understand how to use
 the `app` directory: https://beta.nextjs.org/docs/getting-started#features-overview
 
+#### SEO
+
+Each page folder contains a `head.tsx` file that contains the SEO information for that page.
+
+That is the only place where SEO information should be stored, unless it is global information that applies to all
+pages.
+
+Repetitive information should be stored in the `src/helpers/seo.ts` (`@helpers/seo`) file.
+
 ### Interfaces
 
 Interfaces are stored in the `src/interfaces` (`@interfaces`) directory. The naming convention is `I` followed

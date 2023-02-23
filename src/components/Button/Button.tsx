@@ -10,8 +10,10 @@ type ButtonProps = {
 // A component that renders a button with a link. The style can be yellow, white or black.
 export function Button({ title, link, style = 'yellow' }: ButtonProps) {
 	return (
-		<button className={styles.button} data-button-style={style}>
-			<Link href={link}>{title}</Link>
+		<button className={styles.button} data-button-style={style} title={title}>
+			<Link href={link} title={title}>
+				{title}
+			</Link>
 		</button>
 	);
 }

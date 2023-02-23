@@ -1,48 +1,48 @@
 .heroDynamic {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: fit-content;
-    text-align: center;
-    min-height: 20vh;
-    z-index: 1;
-    padding: 0 2.5rem;
-    gap: 5rem;
-    user-select: none;
-    transition: all 0.2s ease-in-out;
-    background-color: var(--primary-gray);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: fit-content;
+	text-align: center;
+	min-height: 20vh;
+	z-index: 1;
+	padding: 0 2.5rem;
+	gap: 5rem;
+	user-select: none;
+	transition: all 0.2s ease-in-out;
+	background-color: var(--primary-gray);
 }
 
 .backgroundOverlayDecoration {
-    position: absolute;
-    z-index: -2;
-    bottom: -18vw;
-    transform-origin: center center;
-    overflow: hidden;
+	position: absolute;
+	z-index: -2;
+	bottom: -18vw;
+	transform-origin: center center;
+	overflow: hidden;
 }
 
 .active {
-    animation: slide-up 1s ease-in-out forwards;
+	animation: slide-up 1s ease-in-out forwards;
 }
 
 .backgroundOverlayDecoration h1 {
-    font-weight: bolder;
-    font-size: 23vw;
-    white-space: nowrap;
-    opacity: 0.05;
-    text-shadow: 0 0 5px rgba(255, 204, 0, 0.1);
-    animation: glow 2s ease-in-out infinite;
-    margin-bottom: -8vw;
-    padding: 0;
+	font-weight: bolder;
+	font-size: 23vw;
+	white-space: nowrap;
+	opacity: 0.05;
+	text-shadow: 0 0 5px rgba(255, 204, 0, 0.1);
+	animation: glow 2s ease-in-out infinite;
+	margin-bottom: -8vw;
+	padding: 0;
 }
 
 @keyframes slide-up {
-    0% {
-        bottom: -18vw;
-    }
-    100% {
-        bottom: 0;
-    }
+	0% {
+		bottom: -18vw;
+	}
+	100% {
+		bottom: 0;
+	}
 }
