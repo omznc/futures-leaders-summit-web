@@ -29,19 +29,6 @@ export default function handler(req: NextRequest) {
 			);
 		}
 
-		if (
-			!image.startsWith('http') ||
-			!image.startsWith('https') ||
-			!image.match(/\.(jpeg|jpg|png|webp)$/) != null
-		) {
-			return new Response(
-				'Invalid image URL. The URL must be one of the following: jpeg, jpg, png, webp.',
-				{
-					status: 400,
-				}
-			);
-		}
-
 		return new ImageResponse(
 			(
 				<div
