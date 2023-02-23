@@ -6,11 +6,16 @@ export interface IKeynote {
 }
 
 export interface ISocial {
-	name: 'twitter' | 'linkedin' | 'github' | 'instagram';
+	name: 'twitter' | 'linkedin' | 'github' | 'instagram' | 'facebook';
 	link: string;
 }
 
 export interface INavigationItem {
 	name: string;
 	url: string;
+}
+
+export interface IPayment {
+	name: string;
+	icon: string;
 }

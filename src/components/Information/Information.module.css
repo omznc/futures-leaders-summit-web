@@ -37,7 +37,7 @@
     z-index: 999;
 }
 
-.content .title {
+.title {
     font-size: 3rem;
     font-weight: 700;
     width: 50%;
@@ -45,54 +45,27 @@
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.content .description {
+.description {
     font-size: 1.5rem;
     font-weight: 400;
     width: 50%;
     color: white;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
 }
 
-.content .description p span {
+.content span {
     transition: all 0.2s ease-in-out;
 }
 
-.content button {
-    border-radius: 200px;
-    background-color: var(--theme-color);
-    color: black;
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    border: none;
-    transition: all 0.3s ease-in-out;
-    white-space: nowrap;
-    padding: 1rem 2rem;
-    cursor: pointer;
-}
 
 /* Desktop-only effects*/
 @media screen and (min-width: 1050px) {
-    .content button:hover {
-        background-color: var(--theme-color);
-        color: black;
-        cursor: pointer;
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2)) brightness(1.4);
-        scale: 1.02;
+    .title:hover {
         animation: glow 2s infinite;
     }
 
-    .content button:active {
-        background-color: white;
-        color: black;
-        cursor: pointer;
-        scale: 0.95;
-    }
-
-    .content .title:hover {
-        animation: glow 2s infinite;
-    }
-
-    .content .description p:hover span {
+    .description p:hover span {
         color: var(--theme-color);
         animation: glow 2s infinite;
     }
@@ -100,29 +73,21 @@
 
 /* Mobile */
 @media screen and (max-width: 1050px) {
-    .content button {
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    .content a {
-        align-self: center;
-
-    }
-
     .content {
         padding: 5rem 1rem;
         text-align: center;
-        align-content: center;
+        align-items: center;
         justify-content: center;
+        flex-direction: column;
+        flex: 1;
     }
 
-    .content .title {
+    .title {
         width: 100%;
         animation: glow 2s infinite;
     }
 
-    .content .description {
+    .description {
         width: 100%;
         font-size: 1rem;
     }

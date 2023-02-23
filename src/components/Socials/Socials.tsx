@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './Socials.module.css';
 import {
+	AiOutlineFacebook,
 	AiOutlineGithub,
 	AiOutlineInstagram,
 	AiOutlineLinkedin,
@@ -14,19 +15,23 @@ const socialIcons: { [key: string]: JSX.Element } = {
 	twitter: <AiOutlineTwitter />,
 	github: <AiOutlineGithub />,
 	instagram: <AiOutlineInstagram />,
+	facebook: <AiOutlineFacebook />,
 };
 
 type SocialsProps = {
 	socials: ISocial[];
+	theme?: 'white' | 'yellow';
 };
 
 // A component that receives a list of socials and renders them as clickable icons.
-export function Socials({ socials }: SocialsProps) {
+export function Socials({ socials, theme = 'white' }: SocialsProps) {
 	return (
 		<div className={styles.socials}>
 			{socials?.map(social => (
 				<Link href={social.link} target={'_blank'} key={social.name}>
-					<div className={styles.socialIcon}>{socialIcons[social.name]}</div>
+					<div className={styles.socialIcon} data-icon-theme={theme}>
+						{socialIcons[social.name]}
+					</div>
 				</Link>
 			))}
 		</div>

@@ -5,12 +5,11 @@ import { CallToAction } from '@components/CallToAction/CallToAction';
 import { Information } from '@components/Information/Information';
 import { Keynotes } from '@components/Keynotes/Keynotes';
 import HeroBackground from '@public/hero.webp';
-import HeroLogo from '@public/hero.svg';
+import HeroLogo from '@public/logos/logo-stem.svg';
 import BackgroundDecoration from '@public/decor.svg';
 
 const inter = Inter({ subsets: ['latin'] });
-
-export default function Home() {
+export default function Page() {
 	return (
 		<main className={[styles.main, inter.className].join(' ')}>
 			<Cover />
@@ -56,6 +55,7 @@ function Cover() {
 				src={HeroBackground}
 				alt="Background image. Blurred image of a person in a suit giving a speech"
 				priority={true}
+				placeholder={'blur'}
 			/>
 			<Image
 				className={styles.image}

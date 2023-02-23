@@ -18,6 +18,10 @@
     opacity: 0.9;
 }
 
+.header[data-scrolled-to-bottom="true"] {
+    top: -100px;
+}
+
 .header[data-enabled='true'] {
     height: 100px;
 }
@@ -43,6 +47,7 @@
 .header > .logo > img {
     height: 100px;
     object-fit: scale-down;
+    padding: 0.5rem;
 }
 
 /* Navigation */

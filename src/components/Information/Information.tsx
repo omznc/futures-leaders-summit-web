@@ -1,9 +1,9 @@
 import styles from './Information.module.css';
 import Image from 'next/image';
 import { Anton } from '@next/font/google';
-import Link from 'next/link';
 import { ReactNode } from 'react';
 import Hex from '@public/hex.svg';
+import { Button } from '@components/Button/Button';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
@@ -28,9 +28,7 @@ export function Information({
 				<h1 className={[styles.title, anton.className].join(' ')}>{title}</h1>
 				<div className={styles.description}>{children}</div>
 				{shouldRenderButton && (
-					<Link href={buttonLink}>
-						<button>{buttonTitle}</button>
-					</Link>
+					<Button title={buttonTitle} link={buttonLink} style={'yellow'} />
 				)}
 			</div>
 			<div className={styles.backgroundOverlay}>

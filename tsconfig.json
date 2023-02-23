@@ -42,6 +42,9 @@
       ],
       "@public/*": [
         "./public/*"
+      ],
+      "@helpers/*": [
+        "./src/helpers/*"
       ]
     }
   },

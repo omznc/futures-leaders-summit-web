@@ -1,6 +1,6 @@
 import styles from './CallToAction.module.css';
 import { Anton } from '@next/font/google';
-import Link from 'next/link';
+import { Button } from '@components/Button/Button';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
@@ -23,9 +23,7 @@ export function CallToAction({
 					<span key={item}>{item}</span>
 				))}
 			</h1>
-			<button>
-				<Link href={buttonLink}>{buttonTitle}</Link>
-			</button>
+			<Button link={buttonLink} title={buttonTitle} style={'black'} />
 		</div>
 	);
 }

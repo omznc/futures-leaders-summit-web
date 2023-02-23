@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { INavigationItem } from '@interfaces/interfaces';
+import Logo from '@public/logos/logo-fls.svg';
 
 const items: INavigationItem[] = [
 	{ name: 'Home', url: '/' },
@@ -26,6 +27,7 @@ export default function Header() {
 	const [firstLoad, setFirstLoad] = useState<boolean>(true);
 	const [headerHovered, setHeaderHovered] = useState<boolean>(false);
 	const [isScrollingUp, setIsScrollingUp] = useState<boolean>(false);
+	const [scrolledToBottom, setScrolledToBottom] = useState<boolean>(false);
 	const headerRef = useRef<HTMLDivElement>(null);
 	const router = useRouter();
 	const path = usePathname();
@@ -52,7 +54,21 @@ export default function Header() {
 		}
 	}, [firstLoad]);
 
-	// While header is hovered, expanded is always true.
+	// Sets `scrolledToBottom` to true if the user has scrolled to the bottom of the page.
+	// This is used to hide the header so the footer appears more clearly.
+	useEffect(() => {
+		const handleScroll = () => {
+			const bottom =
+				Math.ceil(window.innerHeight + window.scrollY + 200) >=
+				document.documentElement.scrollHeight;
+			if (bottom !== scrolledToBottom) setScrolledToBottom(bottom);
+			console.log(bottom);
+		};
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [scrolledToBottom]);
+
+	// While header is hovered, `expanded` is always true.
 	useEffect(() => {
 		setIsScrollingUp(true);
 		const header = headerRef.current;
@@ -74,11 +90,12 @@ export default function Header() {
 			className={styles.header}
 			data-expanded={expanded}
 			data-enabled={expanded || isScrollingUp || headerHovered}
+			data-scrolled-to-bottom={scrolledToBottom}
 			ref={headerRef}
 		>
 			<div className={styles.logo}>
 				<Image
-					src="/logo.webp"
+					src={Logo}
 					alt="Futures Leaders Summit"
 					width={900}
 					height={500}
