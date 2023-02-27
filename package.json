@@ -11,7 +11,7 @@
 		"full-lint": "npm run lint && npm run prettier"
 	},
 	"dependencies": {
-		"@next/font": "^13.1.6",
+		"@next/font": "^13.2.1",
 		"@vercel/og": "^0.1.0",
 		"next": "13.1.6",
 		"react": "18.2.0",
