@@ -1,6 +1,6 @@
 import styles from './Information.module.css';
 import Image from 'next/image';
-import { Anton } from '@next/font/google';
+import { Anton } from 'next/font/google';
 import { ReactNode } from 'react';
 import Hex from '@public/hex.svg';
 import { Button } from '@components/Button/Button';

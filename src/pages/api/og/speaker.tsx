@@ -14,7 +14,7 @@ export default function handler(req: NextRequest) {
 		const image = searchParams.get('image');
 		const description = searchParams.get('description');
 
-		if (!title || !image || !description) {
+		if (!title || !description) {
 			return new Response(
 				`Missing query parameters: ${[
 					!title && 'title',
@@ -22,7 +22,7 @@ export default function handler(req: NextRequest) {
 					!description && 'description',
 				]
 					.filter(Boolean)
-					.join(', ')}`,
+					.join(', ')}.`,
 				{
 					status: 400,
 				}
@@ -47,24 +47,26 @@ export default function handler(req: NextRequest) {
 						gap: '50px',
 					}}
 				>
-					<div
-						style={{
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							justifyItems: 'center',
-							marginLeft: '10%',
-							marginTop: '-15%',
-						}}
-					>
-						<img
-							alt="Vercel"
-							height={250}
-							src={image}
-							style={{ borderRadius: 128 }}
-							width={250}
-						/>
-					</div>
+					{image && (
+						<div
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+								justifyItems: 'center',
+								marginLeft: '10%',
+								marginTop: '-15%',
+							}}
+						>
+							<img
+								alt="Vercel"
+								height={250}
+								src={image}
+								style={{ borderRadius: 128 }}
+								width={250}
+							/>
+						</div>
+					)}
 					<div
 						style={{
 							fontSize: 60,

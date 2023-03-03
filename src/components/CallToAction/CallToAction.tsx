@@ -1,5 +1,5 @@
 import styles from './CallToAction.module.css';
-import { Anton } from '@next/font/google';
+import { Anton } from 'next/font/google';
 import { Button } from '@components/Button/Button';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });

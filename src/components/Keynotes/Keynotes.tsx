@@ -1,6 +1,6 @@
 import styles from './Keynotes.module.css';
 import Image from 'next/image';
-import { Anton } from '@next/font/google';
+import { Anton } from 'next/font/google';
 import { IKeynote } from '@interfaces/interfaces';
 import { Socials } from '@components/Socials/Socials';
 

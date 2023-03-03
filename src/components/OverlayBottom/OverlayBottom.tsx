@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './OverlayBottom.module.css';
-import { Oswald } from '@next/font/google';
+import { Oswald } from 'next/font/google';
 import { useEffect, useRef } from 'react';
 
 const oswald = Oswald({ subsets: ['latin'] });

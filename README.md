@@ -82,12 +82,7 @@ the `app` directory: https://beta.nextjs.org/docs/getting-started#features-overv
 
 #### SEO
 
-Each page folder contains a `head.tsx` file that contains the SEO information for that page.
-
-That is the only place where SEO information should be stored, unless it is global information that applies to all
-pages.
-
-Repetitive information should be stored in the `src/helpers/seo.ts` (`@helpers/seo`) file.
+Each page contains a `metadata` export that uses NextJS 13.2's new SEO system. Re-usable SEO variables should be stored in `src/helpers/seo.ts` (`@helpers/seo`).
 
 ### Interfaces
 
