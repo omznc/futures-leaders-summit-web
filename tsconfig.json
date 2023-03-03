@@ -30,6 +30,12 @@
 			"@helpers/*": ["./src/helpers/*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"/home/omznc/futures-leaders-summit-web/.next/types/**/*.ts"
+	],
 	"exclude": ["node_modules"]
 }
