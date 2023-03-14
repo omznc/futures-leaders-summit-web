@@ -32,7 +32,7 @@ export function Information({
 				)}
 			</div>
 			<div className={styles.backgroundOverlay}>
-				<Image src={Hex} alt="decor" width={428} height={653} priority={true} />
+				<Image src={Hex} alt='decor' width={428} height={653} priority={true} />
 			</div>
 		</div>
 	);

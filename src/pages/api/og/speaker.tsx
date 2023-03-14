@@ -59,7 +59,7 @@ export default function handler(req: NextRequest) {
 							}}
 						>
 							<img
-								alt="Vercel"
+								alt='Vercel'
 								height={250}
 								src={image}
 								style={{ borderRadius: 128 }}
@@ -100,14 +100,14 @@ export default function handler(req: NextRequest) {
 						}}
 					>
 						<img
-							alt="Vercel"
+							alt='Vercel'
 							src={
 								'https://futures-leaders-summit-web.vercel.app/_next/static/media/logo-fls.4507a0c0.svg'
 							}
 							width={250}
 						/>
 						<img
-							alt="Vercel"
+							alt='Vercel'
 							src={
 								'https://futures-leaders-summit-web.vercel.app/_next/static/media/logo-bhff.37b7b41f.svg'
 							}

@@ -95,7 +95,7 @@ export default function Header() {
 			<div className={styles.logo}>
 				<Image
 					src={Logo}
-					alt="Futures Leaders Summit"
+					alt='Futures Leaders Summit'
 					width={900}
 					height={500}
 					onClick={() => router.push('/')}

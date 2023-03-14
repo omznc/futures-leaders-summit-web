@@ -7,6 +7,7 @@ import { Keynotes } from '@components/Keynotes/Keynotes';
 import HeroBackground from '@public/hero.webp';
 import HeroLogo from '@public/logos/logo-stem.svg';
 import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
+import SponsorsBar from '@components/SponsorsBar/SponsorsBar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -43,6 +44,7 @@ export default function Page() {
 			{/* Async components aren't supported by TS, yet. */}
 			{/* @ts-expect-error Server Component */}
 			<Keynotes />
+			<SponsorsBar />
 			<OverlayBottom />
 		</main>
 	);
@@ -54,14 +56,14 @@ function Cover() {
 			<Image
 				className={styles.background}
 				src={HeroBackground}
-				alt="Background image. Blurred image of a person in a suit giving a speech"
+				alt='Background image. Blurred image of a person in a suit giving a speech'
 				priority={true}
 				placeholder={'blur'}
 			/>
 			<Image
 				className={styles.image}
 				src={HeroLogo}
-				alt="Futures Leaders Summit information"
+				alt='Futures Leaders Summit information'
 				priority={true}
 			/>
 		</div>

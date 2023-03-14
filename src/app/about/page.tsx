@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 	title: `About | ${title}`,
 	description: `About the Futures Leaders Summit`,
 };
+
 const inter = Inter({ subsets: ['latin'] });
 export default function Page() {
 	return (
