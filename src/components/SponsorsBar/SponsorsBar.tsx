@@ -1,7 +1,10 @@
+'use client';
+
 import styles from './SponsorsBar.module.css';
 import { Anton } from 'next/font/google';
 import LogoBHFF from '@public/logos/logo-bhff.svg';
 import Image from 'next/image';
+
 const year = new Date().getFullYear();
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 

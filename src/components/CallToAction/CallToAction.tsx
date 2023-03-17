@@ -1,6 +1,7 @@
 import styles from './CallToAction.module.css';
 import { Anton } from 'next/font/google';
 import { Button } from '@components/Button/Button';
+import { classes } from '@helpers/classes';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
@@ -18,7 +19,7 @@ export function CallToAction({
 }: CallToActionProps) {
 	return (
 		<div className={styles.callToActionBar}>
-			<h1 className={[styles.title, anton.className].join(' ')}>
+			<h1 className={classes(styles.title, anton.className)}>
 				{title.split(' ').map(item => (
 					<span key={item}>{item}</span>
 				))}

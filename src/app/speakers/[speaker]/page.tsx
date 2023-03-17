@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google';
 import styles from './page.module.css';
 import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 import type { Metadata } from 'next';
@@ -6,7 +5,6 @@ import Image from 'next/image';
 import { title } from '@helpers/seo';
 import { IKeynote } from '@interfaces/interfaces';
 
-const inter = Inter({ subsets: ['latin'] });
 const getSpeaker = async (name: string): Promise<IKeynote | undefined> => {
 	name = name.split('-').join(' ');
 
@@ -35,7 +33,7 @@ export default async function Page({
 	const speaker = await getSpeaker(params.speaker);
 	return (
 		<>
-			<main className={[inter.className, styles.main].join(' ')}>
+			<main className={styles.main}>
 				<div className={styles.hero}>
 					{speaker && (
 						<>

@@ -10,8 +10,7 @@ const anton = Anton({ weight: '400', subsets: ['latin'] });
  * Fetches keynotes from the API. This is a placeholder for now.
  */
 const getKeynotes = async (): Promise<IKeynote[]> => {
-	const keynotes: IKeynote[] = require('@public/placeholder-data/keynotes.json');
-	return keynotes;
+	return require('@public/placeholder-data/keynotes.json');
 };
 
 // A component that receives a list of keynotes and renders them, with their socials.
@@ -20,9 +19,6 @@ export async function Keynotes() {
 
 	return (
 		<div className={styles.heroDynamic}>
-			{/*<div className={ styles.backgroundOverlayFlipped }>*/}
-			{/*	<Image src="/hex.svg" alt="decor" width={ 428 } height={ 653 }/>*/}
-			{/*</div>*/}
 			<div className={styles.keynotes}>
 				<h1 className={anton.className}>KEYNOTES</h1>
 				{keynotes.map(keynote => (

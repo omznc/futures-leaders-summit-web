@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import styles from './page.module.css';
 import { CallToAction } from '@components/CallToAction/CallToAction';
 import { Information } from '@components/Information/Information';
@@ -9,11 +8,9 @@ import HeroLogo from '@public/logos/logo-stem.svg';
 import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 import SponsorsBar from '@components/SponsorsBar/SponsorsBar';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export default function Page() {
 	return (
-		<main className={[styles.main, inter.className].join(' ')}>
+		<main className={styles.main}>
 			<Cover />
 			<Information
 				title={'ABOUT THE SUMMIT'}

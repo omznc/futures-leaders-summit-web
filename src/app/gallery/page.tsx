@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google';
 import styles from './page.module.css';
 import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 import { Metadata } from 'next';
@@ -9,11 +8,10 @@ export const metadata: Metadata = {
 	description: `Photo gallery for the Futures Leaders Summit`,
 };
 
-const inter = Inter({ subsets: ['latin'] });
 export default function Page() {
 	return (
 		<>
-			<main className={[inter.className, styles.main].join(' ')}>
+			<main className={styles.main}>
 				<div className={styles.hero}></div>
 				<OverlayBottom />
 			</main>
