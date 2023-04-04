@@ -5,6 +5,7 @@ import { Oswald } from 'next/font/google';
 import { useEffect, useRef } from 'react';
 
 const oswald = Oswald({ subsets: ['latin'] });
+const year = new Date().getFullYear(); // Or just set manually
 
 export function OverlayBottom() {
 	const overlayRef = useRef<HTMLDivElement>(null);
@@ -27,10 +28,9 @@ export function OverlayBottom() {
 	return (
 		<div className={styles.heroDynamic}>
 			<div className={styles.backgroundOverlayDecoration} ref={overlayRef}>
-				<h1 className={oswald.className}>{`SUMMIT '${new Date()
-					.getFullYear()
+				<h1 className={oswald.className}>{`SUMMIT '${year
 					.toString()
-					.slice(-2)}`}</h1>
+					.slice(2)}`}</h1>
 			</div>
 		</div>
 	);

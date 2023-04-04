@@ -1,51 +1,39 @@
-'use client';
-
 import styles from './SponsorsBar.module.css';
-import { Anton } from 'next/font/google';
 import LogoBHFF from '@public/logos/logo-bhff.svg';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Container } from '@components/Container/Container';
 
 const year = new Date().getFullYear();
-const anton = Anton({ weight: '400', subsets: ['latin'] });
+
+const sponsors = [
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
+];
 
 export default function SponsorsBar() {
+	// const sponsors = fetch(...)
+
 	return (
-		<div className={styles.heroDynamic}>
-			<div className={styles.container}>
-				<h1 className={anton.className}>{`${year} SPONSORS & PARTNERS`}</h1>
-				<div className={styles.sponsorsBar}>
-					<Image
-						src={LogoBHFF}
-						alt='Bosnia and Herzegovina Future Foundation'
-						className={styles.sponsor}
-					/>
-					<Image
-						src={LogoBHFF}
-						alt='Bosnia and Herzegovina Future Foundation'
-						className={styles.sponsor}
-					/>
-					<Image
-						src={LogoBHFF}
-						alt='Bosnia and Herzegovina Future Foundation'
-						className={styles.sponsor}
-					/>
-					<Image
-						src={LogoBHFF}
-						alt='Bosnia and Herzegovina Future Foundation'
-						className={styles.sponsor}
-					/>
-					<Image
-						src={LogoBHFF}
-						alt='Bosnia and Herzegovina Future Foundation'
-						className={styles.sponsor}
-					/>
-					<Image
-						src={LogoBHFF}
-						alt='Bosnia and Herzegovina Future Foundation'
-						className={styles.sponsor}
-					/>
-				</div>
+		<Container title={`${year} SPONSORS & PARTNERS`}>
+			<div className={styles.sponsorsBar}>
+				{sponsors.map(sponsor => (
+					<Link href={sponsor.href} key={sponsor.alt} target={'_blank'}>
+						<Image
+							src={sponsor.src}
+							key={sponsor.alt}
+							alt={sponsor.alt}
+							className={styles.sponsor}
+						/>
+					</Link>
+				))}
 			</div>
-		</div>
+		</Container>
 	);
 }

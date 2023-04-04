@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Anton } from 'next/font/google';
 import { IKeynote } from '@interfaces/interfaces';
 import { Socials } from '@components/Socials/Socials';
+import { Container } from '@components/Container/Container';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
@@ -18,17 +19,14 @@ export async function Keynotes() {
 	const keynotes = await getKeynotes();
 
 	return (
-		<div className={styles.heroDynamic}>
-			<div className={styles.keynotes}>
-				<h1 className={anton.className}>KEYNOTES</h1>
-				{keynotes.map(keynote => (
-					<Keynote
-						keynote={keynote}
-						key={[keynote.name, keynote.company].join('-')}
-					/>
-				))}
-			</div>
-		</div>
+		<Container title={'KEYNOTES'}>
+			{keynotes.map(keynote => (
+				<Keynote
+					keynote={keynote}
+					key={[keynote.name, keynote.company].join('-')}
+				/>
+			))}
+		</Container>
 	);
 }
 
