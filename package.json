@@ -26,12 +26,14 @@
 		"eslint": "^8.37.0",
 		"eslint-config-next": "^13.2.4",
 		"husky": "^8.0.3",
+		"imagemin-lint-staged": "^0.5.1",
 		"lint-staged": "^13.2.0",
 		"prettier": "^2.8.7",
 		"typescript": "^5.0.3"
 	},
 	"lint-staged": {
 		"*.{js,ts,jsx,tsx}": "eslint --cache --fix",
-		"*.{js,ts,jsx,tsx,css,md}": "prettier --write"
+		"*": "--ignore-unknown",
+		"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged"
 	}
 }
