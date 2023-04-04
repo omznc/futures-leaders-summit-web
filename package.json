@@ -33,7 +33,7 @@
 	},
 	"lint-staged": {
 		"*.{js,ts,jsx,tsx}": "eslint --cache --fix",
-		"*": "--ignore-unknown",
+		"*": "prettier --ignore-unknown --write",
 		"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged"
 	}
 }
