@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { description, title } from '@helpers/seo';
 import Favicon from '@public/favicon.ico';
+import styles from '@app/venue/page.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,7 +37,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			<html lang='en' className={inter.className}>
 				<body>
 					<Header />
-					{children}
+					<main className={styles.main}>{children}</main>
+
 					<Footer />
 				</body>
 			</html>

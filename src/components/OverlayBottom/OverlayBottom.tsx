@@ -1,10 +1,13 @@
 'use client';
 
 import styles from './OverlayBottom.module.css';
-import { Oswald } from 'next/font/google';
+import { Anton, Oswald } from 'next/font/google';
 import { useEffect, useRef } from 'react';
+import { classes } from '@helpers/classes';
 
 const oswald = Oswald({ subsets: ['latin'] });
+const anton = Anton({ weight: '400', subsets: ['latin'] });
+
 const year = new Date().getFullYear(); // Or just set manually
 
 export function OverlayBottom() {
@@ -27,6 +30,11 @@ export function OverlayBottom() {
 
 	return (
 		<div className={styles.heroDynamic}>
+			<div className={classes(styles.title, anton.className)}>
+				<span>FUTURES</span>
+				<span>LEADERS</span>
+				<span>{`SUMMIT '${year.toString().slice(2)}`}</span>
+			</div>
 			<div className={styles.backgroundOverlayDecoration} ref={overlayRef}>
 				<h1 className={oswald.className}>{`SUMMIT '${year
 					.toString()

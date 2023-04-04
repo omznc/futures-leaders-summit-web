@@ -8,6 +8,9 @@ implementations of them.
 This project tries to minimize the amount of dependencies we use, and tries to
 use the most up-to-date versions of the ones we do.
 
+This project uses `pnpm` as the package manager, and `husky` to run pre-commit
+hooks.
+
 ## Contribution Guide
 
 The actual code is in the `src` directory, and the `public` directory is used
@@ -17,7 +20,7 @@ Every folder in the `src` directory has a Typescript import alias, and is
 aliased to the `src` directory. Here's an example:
 
 ```typescript
-import Footer from '@components/Footer';
+import Footer from '@components/Footer/Footer';
 import SomeImage from '@public/some-image.webp';
 import ISomeInterface from '@interfaces/ISomeInterface';
 ```
@@ -25,7 +28,7 @@ import ISomeInterface from '@interfaces/ISomeInterface';
 can be used instead of
 
 ```typescript
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer/Footer';
 import SomeImage from '../../../../public/some-image.webp';
 import ISomeInterface from '../interfaces/ISomeInterface';
 ```

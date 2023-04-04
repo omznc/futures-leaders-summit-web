@@ -38,11 +38,47 @@
 	padding: 0;
 }
 
+.title {
+	width: 100%;
+	font-size: 5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 2rem;
+	padding-bottom: 2rem;
+	flex-wrap: wrap;
+}
+
+.title span {
+	width: 100%;
+	text-align: left;
+	line-height: 1;
+}
+
+/*last element is yellow*/
+.title span:last-child {
+	color: var(--theme-color);
+}
+
 @keyframes slide-up {
 	0% {
 		bottom: -18vw;
 	}
 	100% {
 		bottom: 0;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.title {
+		justify-content: center;
+		align-items: center;
+	}
+	.title span {
+		text-align: center;
+	}
+	.title span:not(:last-child) {
+		width: fit-content;
 	}
 }

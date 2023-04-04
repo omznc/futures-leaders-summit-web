@@ -1,11 +1,11 @@
 import styles from './Container.module.css';
-import React from 'react';
+import { ReactNode } from 'react';
 import { Anton } from 'next/font/google';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
 type ContainerProps = {
-	children: React.ReactNode;
+	children: ReactNode;
 	title?: string;
 };
 

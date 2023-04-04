@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<main className={styles.main}>
+		<>
 			<div className={styles.hero}></div>
 			<OverlayBottom />
-		</main>
+		</>
 	);
 }

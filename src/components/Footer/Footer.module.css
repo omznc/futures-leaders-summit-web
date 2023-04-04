@@ -66,6 +66,13 @@
 .payments img {
 	height: 100%;
 	width: auto;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.payments:hover img:not(:hover) {
+	opacity: 0.8;
+	transition: all 0.2s ease-in-out;
 }
 
 .legal {
@@ -94,11 +101,18 @@
 	max-width: 450px;
 	height: auto;
 	margin-bottom: 2rem;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 
 .logos img:nth-child(2) {
 	width: 100%;
 	max-width: 550px;
+}
+
+.logos:hover img:not(:hover) {
+	opacity: 0.8;
+	transition: all 0.2s ease-in-out;
 }
 
 /* Mobile */

@@ -33,23 +33,21 @@ export default async function Page({
 	const speaker = await getSpeaker(params.speaker);
 	return (
 		<>
-			<main className={styles.main}>
-				<div className={styles.hero}>
-					{speaker && (
-						<>
-							<Image
-								src={speaker.image}
-								width={200}
-								height={200}
-								alt={speaker.name}
-							/>
-							<h1>{speaker.name}</h1>
-							<p>{speaker.company}</p>
-						</>
-					)}
-				</div>
-				<OverlayBottom />
-			</main>
+			<div className={styles.hero}>
+				{speaker && (
+					<>
+						<Image
+							src={speaker.image}
+							width={200}
+							height={200}
+							alt={speaker.name}
+						/>
+						<h1>{speaker.name}</h1>
+						<p>{speaker.company}</p>
+					</>
+				)}
+			</div>
+			<OverlayBottom />
 		</>
 	);
 }

@@ -6,16 +6,7 @@ import { Container } from '@components/Container/Container';
 
 const year = new Date().getFullYear();
 
-const sponsors = [
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-	{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' },
-];
+const sponsors = [{ src: LogoBHFF, alt: 'BHFF', href: 'https://www.fls.ba' }];
 
 export default function SponsorsBar() {
 	// const sponsors = fetch(...)

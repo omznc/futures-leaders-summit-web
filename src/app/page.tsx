@@ -10,7 +10,7 @@ import SponsorsBar from '@components/SponsorsBar/SponsorsBar';
 
 export default function Page() {
 	return (
-		<main className={styles.main}>
+		<>
 			<Cover />
 			<Information
 				title={'ABOUT THE SUMMIT'}
@@ -43,7 +43,7 @@ export default function Page() {
 			<Keynotes />
 			<SponsorsBar />
 			<OverlayBottom />
-		</main>
+		</>
 	);
 }
 
