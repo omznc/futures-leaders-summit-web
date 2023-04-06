@@ -1,10 +1,10 @@
-import styles from './Information.module.css';
+import styles from './style.module.css';
 import Image from 'next/image';
 import { Anton } from 'next/font/google';
 import { ReactNode } from 'react';
 import Hex from '@public/hex.svg';
 import { Button } from '@components/Button/Button';
-import { classes } from '@helpers/classes';
+import Title from '@components/Title/Title';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
@@ -26,7 +26,7 @@ export function Information({
 	return (
 		<div className={styles.hero}>
 			<div className={styles.content}>
-				<h1 className={classes(styles.title, anton.className)}>{title}</h1>
+				<Title title={title} />
 				<div className={styles.description}>{children}</div>
 				{shouldRenderButton && (
 					<Button title={buttonTitle} link={buttonLink} style={'yellow'} />

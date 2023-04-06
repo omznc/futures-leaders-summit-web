@@ -1,4 +1,4 @@
-import styles from './CallToAction.module.css';
+import styles from './style.module.css';
 import { Anton } from 'next/font/google';
 import { Button } from '@components/Button/Button';
 import { classes } from '@helpers/classes';
@@ -12,13 +12,13 @@ type CallToActionProps = {
 };
 
 // A component that renders a call to action bar, with a title and a button.
-export function CallToAction({
+export function BarCallToAction({
 	title,
 	buttonTitle,
 	buttonLink,
 }: CallToActionProps) {
 	return (
-		<div className={styles.callToActionBar}>
+		<div className={styles.bar}>
 			<h1 className={classes(styles.title, anton.className)}>
 				{title.split(' ').map(item => (
 					<span key={item}>{item}</span>

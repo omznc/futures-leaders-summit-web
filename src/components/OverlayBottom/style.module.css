@@ -8,7 +8,7 @@
 	text-align: center;
 	min-height: 20vh;
 	z-index: 1;
-	padding: 0 2.5rem;
+	padding: 2rem 2.5rem;
 	gap: 5rem;
 	user-select: none;
 	transition: all 0.2s ease-in-out;
@@ -40,7 +40,7 @@
 
 .title {
 	width: 100%;
-	font-size: 5rem;
+	font-size: 8rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
@@ -48,6 +48,7 @@
 	gap: 2rem;
 	padding-bottom: 2rem;
 	flex-wrap: wrap;
+	margin-left: 5rem;
 }
 
 .title span {
@@ -74,6 +75,8 @@
 	.title {
 		justify-content: center;
 		align-items: center;
+		margin-left: 0;
+		font-size: 5rem;
 	}
 	.title span {
 		text-align: center;

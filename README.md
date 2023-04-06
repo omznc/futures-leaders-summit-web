@@ -49,13 +49,13 @@ src
 └── components
     └── Footer
         ├── Footer.tsx
-        ├── Footer.module.css
+        ├── style.module.css
         └── readme.md (optional, but useful for documentation)
 ```
 
 Stylesheets use CSS Modules, and are stored next to the component they're used
-in. The stylesheet should be named the same as the component, with the
-`.module.css` extension, and should be imported as `styles` in the component.
+in. The stylesheet should be named `style.module.css`, and should be imported as
+`styles` in the component.
 
 If you're using more than 1 class in an element, use
 `[styles.class1, styles.class2].join(' ')` to join the classes together, instead
@@ -64,7 +64,7 @@ of `${styles.class1} ${styles.class2}`, as it's easier to modify.
 The following is an example of a component named`Footer` with a stylesheet.
 
 ```typescript
-import styles from './Footer.module.css';
+import styles from './style.module.css';
 ```
 
 If a component accepts props, create a type for the prop before using it. The

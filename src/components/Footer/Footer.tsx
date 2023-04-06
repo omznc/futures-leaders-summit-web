@@ -1,4 +1,4 @@
-import styles from './Footer.module.css';
+import styles from './style.module.css';
 import { Socials } from '@components/Socials/Socials';
 import LogoFLS from '@public/logos/logo-fls.svg';
 import LogoBHFF from '@public/logos/logo-bhff.svg';

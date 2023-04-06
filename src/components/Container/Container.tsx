@@ -1,6 +1,7 @@
-import styles from './Container.module.css';
+import styles from './style.module.css';
 import { ReactNode } from 'react';
 import { Anton } from 'next/font/google';
+import Title from '@components/Title/Title';
 
 const anton = Anton({ weight: '400', subsets: ['latin'] });
 
@@ -12,7 +13,7 @@ type ContainerProps = {
 export function Container({ children, title }: ContainerProps) {
 	return (
 		<div className={styles.container}>
-			{title && <h1 className={anton.className}>{title}</h1>}
+			{title && <Title title={title} />}
 			{children}
 		</div>
 	);

@@ -1,4 +1,4 @@
-import styles from './SponsorsBar.module.css';
+import styles from './style.module.css';
 import LogoBHFF from '@public/logos/logo-bhff.svg';
 import Image from 'next/image';
 import Link from 'next/link';

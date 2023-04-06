@@ -1,4 +1,4 @@
-import styles from './Keynotes.module.css';
+import styles from './style.module.css';
 import Image from 'next/image';
 import { Anton } from 'next/font/google';
 import { IKeynote } from '@interfaces/interfaces';

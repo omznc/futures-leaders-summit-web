@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './Header.module.css';
+import styles from './style.module.css';
 import Image from 'next/image';
 import { TbArrowBarUp, TbMenu } from 'react-icons/tb';
 import { useEffect, useRef, useState } from 'react';
@@ -17,6 +17,7 @@ const items: INavigationItem[] = [
 	{ name: 'Sponsors & Partners', url: '/sponsors' },
 	{ name: 'Gallery', url: '/gallery' },
 	{ name: 'Venue', url: '/venue' },
+	{ name: 'Contact', url: '/contact' },
 ];
 
 const secondsUntilHeaderExpands = 1;

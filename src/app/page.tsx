@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './page.module.css';
-import { CallToAction } from '@components/CallToAction/CallToAction';
+import { BarCallToAction } from '@components/BarCallToAction/BarCallToAction';
 import { Information } from '@components/Information/Information';
 import { Keynotes } from '@components/Keynotes/Keynotes';
 import HeroBackground from '@public/hero.webp';
@@ -33,7 +33,7 @@ export default function Page() {
 					we take a more active role.
 				</p>
 			</Information>
-			<CallToAction
+			<BarCallToAction
 				title={"DISCOVER THIS YEAR'S PROGRAM"}
 				buttonTitle={'See Schedule'}
 				buttonLink={'/schedule'}

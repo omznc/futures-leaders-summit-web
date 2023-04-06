@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './OverlayBottom.module.css';
+import styles from './style.module.css';
 import { Anton, Oswald } from 'next/font/google';
 import { useEffect, useRef } from 'react';
 import { classes } from '@helpers/classes';
