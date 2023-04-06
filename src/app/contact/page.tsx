@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<div className={styles.main}>
+		<>
 			<div className={styles.hero}>
 				<div className={styles.info}>
 					<Title title={'Contact us'} />
@@ -29,7 +29,7 @@ export default function Page() {
 				<Image src={Hex} alt='decor' width={428} height={653} priority={true} />
 			</div>
 			<OverlayBottom />
-		</div>
+		</>
 	);
 }
 

@@ -4,18 +4,14 @@
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
-	height: 100vh;
+	height: fit-content;
 	text-align: center;
 	padding: 2rem 2.5rem;
 	gap: 5rem;
 	user-select: none;
 	transition: all 0.2s ease-in-out;
 	background-color: var(--primary-gray);
-}
-
-.main {
 	margin-top: 100px;
-	padding-bottom: 800px;
 }
 
 .info {
@@ -121,7 +117,7 @@
 	.form {
 		width: 100%;
 	}
-	.main {
+	.hero {
 		margin-top: 200px;
 	}
 }
