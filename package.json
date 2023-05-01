@@ -27,7 +27,7 @@
 		"eslint-config-next": "^13.2.4",
 		"husky": "^8.0.3",
 		"imagemin-lint-staged": "^0.5.1",
-		"lint-staged": "^13.2.0",
+		"lint-staged": "^13.2.2",
 		"prettier": "^2.8.7",
 		"typescript": "^5.0.3"
 	},
