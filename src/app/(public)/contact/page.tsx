@@ -18,14 +18,20 @@ export default function Page() {
 				<div className={styles.info}>
 					<Title title={'Contact us'} />
 					<p>
-						Fill in the form below and we will get back to you as soon as
-						possible.
+						Fill in the form below and we will get back to you as
+						soon as possible.
 					</p>
 				</div>
 				<Form />
 			</div>
 			<div className={styles.backgroundOverlay}>
-				<Image src={Hex} alt='decor' width={428} height={653} priority={true} />
+				<Image
+					src={Hex}
+					alt='decor'
+					width={428}
+					height={653}
+					priority={true}
+				/>
 			</div>
 		</>
 	);

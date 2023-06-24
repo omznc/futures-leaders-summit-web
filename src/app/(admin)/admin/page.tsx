@@ -36,8 +36,12 @@ export default function Page() {
 						/>
 						<div className='h-[100px] w-[1px] bg-white bg-opacity-25' />
 						<div className='flex flex-col gap-2'>
-							<h1 className='text-4xl font-bold text-white'>Admin</h1>
-							<h1 className='text-4xl font-bold text-white'>Dashboard</h1>
+							<h1 className='text-4xl font-bold text-white'>
+								Admin
+							</h1>
+							<h1 className='text-4xl font-bold text-white'>
+								Dashboard
+							</h1>
 						</div>
 					</div>
 					<p className='opacity-75 text-center'>

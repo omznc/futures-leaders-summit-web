@@ -45,7 +45,11 @@ export function Footer() {
 								'All safety measures are in accordance with the orders and instructions of the Federal and Cantonal Crisis Staff. The organizing team will put in place all measures needed to prevent the further spread of COVID-19 during event days. Your health and well-being is of the utmost importance for us.'
 							}
 						</p>
-						<Button title={'Contact Us'} link={'/contact'} style={'yellow'} />
+						<Button
+							title={'Contact Us'}
+							link={'/contact'}
+							style={'yellow'}
+						/>
 						<div className={styles.payments}>
 							{payments.map(payment => (
 								<Image
@@ -70,8 +74,14 @@ export function Footer() {
 						<Socials socials={socials} theme={'yellow'} />
 					</div>
 					<div className={styles.logos}>
-						<Image src={LogoFLS} alt={'Futures Leaders Summit Logo'} />
-						<Image src={LogoBHFF} alt={'BH Futures Foundation Logo'} />
+						<Image
+							src={LogoFLS}
+							alt={'Futures Leaders Summit Logo'}
+						/>
+						<Image
+							src={LogoBHFF}
+							alt={'BH Futures Foundation Logo'}
+						/>
 					</div>
 				</div>
 			</footer>

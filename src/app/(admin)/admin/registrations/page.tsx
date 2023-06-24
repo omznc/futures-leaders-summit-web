@@ -1,7 +1,7 @@
 'use client';
 
 import { AdminPanelButton } from '@components/Button/Button';
-import { FaDownload } from 'react-icons/fa';
+import { FaCopy, FaDownload } from 'react-icons/fa';
 import useUserStore from '@/src/stores/userStore';
 
 import { redirect } from 'next/navigation';
@@ -13,6 +13,7 @@ import {
 	Registration,
 } from '@interfaces/interfaces';
 import { parseDate } from '@helpers/time';
+import toast from 'react-hot-toast';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -119,11 +120,13 @@ function TableData({
 	return (
 		<td
 			onClick={onClick}
-			className={`whitespace-nowrap px-4 py-2 text-gray-700 ${
-				onClick && 'cursor-pointer hover:bg-neutral-100 transition-all'
+			className={`whitespace-nowrap flex-wrap px-4 py-2 text-gray-700 ${
+				onClick &&
+				data &&
+				'cursor-pointer hover:bg-neutral-200 bg-neutral-100 transition-all'
 			}`}
 		>
-			{data}
+			<div className='flex gap-2 items-center'>{data}</div>
 		</td>
 	);
 }
@@ -134,11 +137,18 @@ function TableRow({ data }: { data: Registration }) {
 	return (
 		<tr>
 			<TableData
-				data={data?.id?.substring(0, 8)}
+				data={
+					<>
+						<FaCopy className='mr-2' /> {data?.id?.substring(0, 8)}{' '}
+					</>
+				}
 				onClick={() => {
-					navigator.clipboard.writeText(JSON.stringify(data)).catch(() => {
-						console.log('Failed to copy');
-					});
+					navigator.clipboard
+						.writeText(JSON.stringify(data))
+						.then(() => toast.success('Copied to clipboard'))
+						.catch(() =>
+							toast.error('Failed to copy to clipboard')
+						);
 				}}
 			/>
 			<TableData data={`${data?.firstName} ${data?.lastName}`} />
@@ -154,7 +164,10 @@ function TableRow({ data }: { data: Registration }) {
 				data={data?.personalDocument ? 'Download' : ''}
 				onClick={() => {
 					data?.personalDocument &&
-						DownloadCV(data.personalDocument, user?.token as string);
+						DownloadCV(
+							data.personalDocument,
+							user?.token as string
+						);
 				}}
 			/>
 		</tr>

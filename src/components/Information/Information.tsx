@@ -29,11 +29,21 @@ export function Information({
 				<Title title={title} />
 				<div className={styles.description}>{children}</div>
 				{shouldRenderButton && (
-					<Button title={buttonTitle} link={buttonLink} style={'yellow'} />
+					<Button
+						title={buttonTitle}
+						link={buttonLink}
+						style={'yellow'}
+					/>
 				)}
 			</div>
 			<div className={styles.backgroundOverlay}>
-				<Image src={Hex} alt='decor' width={428} height={653} priority={true} />
+				<Image
+					src={Hex}
+					alt='decor'
+					width={428}
+					height={653}
+					priority={true}
+				/>
 			</div>
 		</div>
 	);

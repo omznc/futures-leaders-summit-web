@@ -64,7 +64,8 @@
 	z-index: 3;
 	object-fit: cover;
 	overflow: hidden;
-	filter: blur(1px) grayscale(0.9) brightness(0.5) hue-rotate(180deg) sepia(0.2);
+	filter: blur(1px) grayscale(0.9) brightness(0.5) hue-rotate(180deg)
+		sepia(0.2);
 }
 
 /* Background logo overlays */

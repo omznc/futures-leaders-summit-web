@@ -35,7 +35,10 @@ export function OverlayBottom() {
 				<span>LEADERS</span>
 				<span>{`SUMMIT '${year.toString().slice(2)}`}</span>
 			</div>
-			<div className={styles.backgroundOverlayDecoration} ref={overlayRef}>
+			<div
+				className={styles.backgroundOverlayDecoration}
+				ref={overlayRef}
+			>
 				<h1 className={oswald.className}>{`SUMMIT '${year
 					.toString()
 					.slice(2)}`}</h1>

@@ -1,13 +1,14 @@
 'use client';
 
 import { AdminPanelButton } from '@components/Button/Button';
-import { FaDownload } from 'react-icons/fa';
+import { FaCopy, FaDownload } from 'react-icons/fa';
 import useUserStore from '@/src/stores/userStore';
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
 import { ReactNode, useEffect } from 'react';
 import { FilterPaymentsResponse, Payment } from '@interfaces/interfaces';
 import { parseDate } from '@helpers/time';
+import toast from 'react-hot-toast';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -30,7 +31,9 @@ export default function Page() {
 	return (
 		<div className='flex h-full flex-col gap-8'>
 			<div className='flex flex-col gap-4'>
-				<h1 className='text-4xl text-center font-bold text-white'>Payments</h1>
+				<h1 className='text-4xl text-center font-bold text-white'>
+					Payments
+				</h1>
 				{!isLoading ? (
 					<p className='text-center opacity-75'>
 						We have handled
@@ -114,11 +117,11 @@ function TableData({
 	return (
 		<td
 			onClick={onClick}
-			className={`whitespace-nowrap px-4 py-2 text-gray-700 ${
+			className={`whitespace-nowrap flex-wrap px-4 py-2 text-gray-700 ${
 				onClick && 'cursor-pointer hover:bg-neutral-100 transition-all'
 			}`}
 		>
-			{data}
+			<div className='flex gap-2 items-center'>{data}</div>
 		</td>
 	);
 }
@@ -127,11 +130,18 @@ function TableRow({ data }: { data: Payment }) {
 	return (
 		<tr>
 			<TableData
-				data={data?.id?.substring(0, 8)}
+				data={
+					<>
+						<FaCopy className='mr-2' /> {data?.id?.substring(0, 8)}{' '}
+					</>
+				}
 				onClick={() => {
-					navigator.clipboard.writeText(JSON.stringify(data)).catch(() => {
-						console.log('Failed to copy');
-					});
+					navigator.clipboard
+						.writeText(JSON.stringify(data))
+						.then(() => toast.success('Copied to clipboard'))
+						.catch(() =>
+							toast.error('Failed to copy to clipboard')
+						);
 				}}
 			/>
 			<TableData data={data?.payerFullName} />

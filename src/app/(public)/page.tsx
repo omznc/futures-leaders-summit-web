@@ -18,18 +18,19 @@ export default function Page() {
 			>
 				<p>
 					We provide up-and-coming <span>STEM leaders</span> of{' '}
-					<span>Bosnia and Herzegovina</span> the three key ingredients for
-					success: <span>quality education</span>,{' '}
+					<span>Bosnia and Herzegovina</span> the three key
+					ingredients for success: <span>quality education</span>,{' '}
 					<span>access to technology</span>, and{' '}
 					<span>leadership development</span>.
 				</p>
 				<br />
 				<p>
-					This year, we will hear the stories of <span>leaders</span> and{' '}
-					<span>organisations</span> about how they are rethinking our present
-					approach to global challenges, and <span>inspire</span> us to{' '}
-					<span>reimagine</span> a more <span>prosperous future</span> in which
-					we take a more active role.
+					This year, we will hear the stories of <span>leaders</span>{' '}
+					and <span>organisations</span> about how they are rethinking
+					our present approach to global challenges, and{' '}
+					<span>inspire</span> us to <span>reimagine</span> a more{' '}
+					<span>prosperous future</span> in which we take a more
+					active role.
 				</p>
 			</Information>
 			<BarCallToAction

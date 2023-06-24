@@ -62,7 +62,9 @@ export default function handler(req: NextRequest) {
 								alt='Vercel'
 								height={250}
 								src={image}
-								style={{ borderRadius: 128 }}
+								style={{
+									borderRadius: 128,
+								}}
 								width={250}
 							/>
 						</div>
@@ -82,10 +84,23 @@ export default function handler(req: NextRequest) {
 							marginTop: '-15%',
 						}}
 					>
-						<h1 style={{ fontSize: 50, color: '#f1dc13', fontWeight: 'bold' }}>
+						<h1
+							style={{
+								fontSize: 50,
+								color: '#f1dc13',
+								fontWeight: 'bold',
+							}}
+						>
 							{title}
 						</h1>
-						<p style={{ fontSize: 30, marginTop: 0 }}>{description}</p>
+						<p
+							style={{
+								fontSize: 30,
+								marginTop: 0,
+							}}
+						>
+							{description}
+						</p>
 					</div>
 					<div
 						style={{

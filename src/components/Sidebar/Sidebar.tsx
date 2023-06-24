@@ -49,7 +49,9 @@ export default function Sidebar() {
 
 	return (
 		<div
-			className={`${expanded ? 'w-[300px]' : 'w-[110px]'} brightness-125 ${
+			className={`${
+				expanded ? 'w-[300px]' : 'w-[110px]'
+			} brightness-125 ${
 				styles.slideInRight
 			} bg-secondary-gray px-4 py-12 h-screen justify-between flex flex-col border-r-[1px] border-white border-opacity-10 transition-all`}
 		>
@@ -63,7 +65,12 @@ export default function Sidebar() {
 						{expanded ? (
 							<Image src={FLSLogo} alt='FLS Logo' height={82} />
 						) : (
-							<Image src={FLSLogoSmall} alt='FLS Logo' width={75} height={75} />
+							<Image
+								src={FLSLogoSmall}
+								alt='FLS Logo'
+								width={75}
+								height={75}
+							/>
 						)}
 					</div>
 				</div>
@@ -87,7 +94,11 @@ export default function Sidebar() {
 					}`}
 					onClick={() => setExpanded(!expanded)}
 				>
-					{expanded ? <BsLayoutTextSidebar /> : <BsLayoutTextSidebarReverse />}
+					{expanded ? (
+						<BsLayoutTextSidebar />
+					) : (
+						<BsLayoutTextSidebarReverse />
+					)}
 					{expanded && 'Collapse'}
 				</div>
 				<Link

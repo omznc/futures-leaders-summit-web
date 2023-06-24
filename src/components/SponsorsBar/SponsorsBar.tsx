@@ -41,7 +41,11 @@ export default function SponsorsBar() {
 					.map(sponsor => sponsor.members)
 					.flat()
 					.map(member => (
-						<Link href={member.link} key={member.name} target={'_blank'}>
+						<Link
+							href={member.link}
+							key={member.name}
+							target={'_blank'}
+						>
 							<Image
 								src={member.image}
 								key={member.name}

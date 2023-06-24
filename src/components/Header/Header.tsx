@@ -41,7 +41,9 @@ export default function Header() {
 			setIsScrollingUp(currentScroll < lastScroll);
 			setLastScroll(currentScroll);
 		};
-		window.addEventListener('scroll', handleScroll, { passive: true });
+		window.addEventListener('scroll', handleScroll, {
+			passive: true,
+		});
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [lastScroll]);
 
@@ -64,7 +66,9 @@ export default function Header() {
 				document.documentElement.scrollHeight;
 			if (bottom !== scrolledToBottom) setScrolledToBottom(bottom);
 		};
-		window.addEventListener('scroll', handleScroll, { passive: true });
+		window.addEventListener('scroll', handleScroll, {
+			passive: true,
+		});
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [scrolledToBottom]);
 
