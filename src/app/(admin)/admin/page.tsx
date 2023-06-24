@@ -85,14 +85,6 @@ export default function Page() {
 					>
 						Login
 					</button>
-					<button
-						className='px-4 py-2 border-[1px] bg-white text-black rounded-md'
-						onClick={() => {
-							router.push('/admin/payments');
-						}}
-					>
-						Demo Login
-					</button>
 				</div>
 			</div>
 		</div>
