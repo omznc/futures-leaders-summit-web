@@ -6,7 +6,13 @@ import useUserStore from '@/src/stores/userStore';
 
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
-import { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
+import {
+	FilterRegistrationsResponse,
+	PersonalDocument,
+	Registration,
+} from '@interfaces/interfaces';
+import { parseDate } from '@helpers/time';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -25,6 +31,8 @@ export default function Page() {
 		return <div>Error: {error}</div>;
 	}
 
+	const response = data as FilterRegistrationsResponse;
+
 	return (
 		<div className='flex h-full flex-col gap-8'>
 			<div className='flex flex-col gap-4'>
@@ -34,8 +42,7 @@ export default function Page() {
 				{!isLoading ? (
 					<p className='text-center opacity-75'>
 						We have
-						{/*// @ts-ignore*/}
-						<span className='font-bold text-center'>{` ${data?.totalElements!} `}</span>
+						<span className='font-bold text-center'>{` ${response?.totalElements} `}</span>
 						registrations
 					</p>
 				) : (
@@ -51,13 +58,127 @@ export default function Page() {
 					disabled={isLoading}
 				/>
 			</div>
-			<div
-				className={`w-full flex flex-col justify-center items-center h-full bg-white bg-opacity-10 rounded-lg ${
-					isLoading ? 'animate-pulse bg-opacity-25' : ''
-				}`}
-			>
-				<h2>Pretend this is a table</h2>
-			</div>
+			{isLoading ? (
+				<div
+					className={`w-full flex flex-col justify-center items-center h-full bg-white bg-opacity-10 rounded-lg ${
+						isLoading ? 'animate-pulse bg-opacity-25' : ''
+					}`}
+				/>
+			) : (
+				<Table data={response} />
+			)}
 		</div>
 	);
 }
+
+function Table({ data }: { data: FilterRegistrationsResponse }) {
+	return (
+		<div className='overflow-x-auto rounded-lg border border-gray-200'>
+			<table className='w-full min-w-min divide-y-2 divide-gray-200 bg-white p-4 bg-opacity-100 text-sm'>
+				<thead className='ltr:text-left rtl:text-right'>
+					<tr>
+						<TableHeader title={'ID'} />
+						<TableHeader title={'Full Name'} />
+						<TableHeader title={'Birth Date'} />
+						<TableHeader title={'Email'} />
+						<TableHeader title={'Phone Number'} />
+						<TableHeader title={'Field'} />
+						<TableHeader title={'Tier'} />
+						<TableHeader title={'Code'} />
+						<TableHeader title={'Date'} />
+						<TableHeader title={'LinkedIn'} />
+						<TableHeader title={'Resume'} />
+					</tr>
+				</thead>
+
+				<tbody className='divide-y divide-gray-200'>
+					{data?.content.map(registration => (
+						<TableRow key={registration.id} data={registration} />
+					))}
+				</tbody>
+			</table>
+		</div>
+	);
+}
+
+function TableHeader({ title }: { title: string }) {
+	return (
+		<th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900'>
+			{title}
+		</th>
+	);
+}
+
+function TableData({
+	data,
+	onClick,
+}: {
+	data: ReactNode;
+	onClick?: () => void;
+}) {
+	return (
+		<td
+			onClick={onClick}
+			className={`whitespace-nowrap px-4 py-2 text-gray-700 ${
+				onClick && 'cursor-pointer hover:bg-neutral-100 transition-all'
+			}`}
+		>
+			{data}
+		</td>
+	);
+}
+
+function TableRow({ data }: { data: Registration }) {
+	const { user } = useUserStore();
+
+	return (
+		<tr>
+			<TableData
+				data={data?.id?.substring(0, 8)}
+				onClick={() => {
+					navigator.clipboard.writeText(JSON.stringify(data)).catch(() => {
+						console.log('Failed to copy');
+					});
+				}}
+			/>
+			<TableData data={`${data?.firstName} ${data?.lastName}`} />
+			<TableData data={parseDate(data?.birthDate)} />
+			<TableData data={data?.email} />
+			<TableData data={data?.phoneNumber} />
+			<TableData data={data?.fieldOfStudy} />
+			<TableData data={data?.ticketType} />
+			<TableData data={data?.paymentConfirmationCode} />
+			<TableData data={parseDate(data?.createdAt)} />
+			<TableData data={data?.linkedinUrl} />
+			<TableData
+				data={data?.personalDocument ? 'Download' : ''}
+				onClick={() => {
+					data?.personalDocument &&
+						DownloadCV(data.personalDocument, user?.token as string);
+				}}
+			/>
+		</tr>
+	);
+}
+
+const DownloadCV = async (doc: PersonalDocument, token: string) => {
+	let res = await fetch(
+		`https://fls-backend.herokuapp.com/document/download-document/${doc?.id}`,
+		{
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+				Accept: 'application/json',
+			},
+		}
+	).then(res => res.blob());
+
+	const url = window.URL.createObjectURL(res);
+	const link = document.createElement('a');
+	link.href = url;
+	link.setAttribute('download', doc?.name);
+	document.body.appendChild(link);
+	link.click();
+	link.remove();
+};

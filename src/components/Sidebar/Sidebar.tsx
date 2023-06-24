@@ -18,6 +18,7 @@ import FLSLogo from '@public/logos/logo-fls.svg';
 import FLSLogoSmall from '@public/logos/logo-fls-small.svg';
 import Image from 'next/image';
 import useUserStore from '@/src/stores/userStore';
+import styles from './style.module.css';
 
 const sidebarEntries = [
 	{
@@ -48,9 +49,9 @@ export default function Sidebar() {
 
 	return (
 		<div
-			className={`${
-				expanded ? 'w-[300px]' : 'w-[110px]'
-			} brightness-125 bg-secondary-gray px-4 py-12 h-screen justify-between flex flex-col border-r-[1px] border-white border-opacity-10 transition-all`}
+			className={`${expanded ? 'w-[300px]' : 'w-[110px]'} brightness-125 ${
+				styles.slideInRight
+			} bg-secondary-gray px-4 py-12 h-screen justify-between flex flex-col border-r-[1px] border-white border-opacity-10 transition-all`}
 		>
 			<div className='flex flex-col h-1/2 min-h-[350px] gap-8 select-none'>
 				<div className='flex h-1/4 overflow-hidden  flex-col gap-2'>

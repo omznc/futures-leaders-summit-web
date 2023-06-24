@@ -15,12 +15,17 @@ const useFetcher = (url: string) => {
 			body: JSON.stringify({
 				discountName: '',
 				pageNumber: 0,
-				pageSize: 5,
+				pageSize: 20,
 				searchText: '',
 			}),
 		}).then(res => res.json());
 
-	const { data, error, isLoading } = useSWR(url, fetcher);
+	const { data, error, isLoading } = useSWR(url, fetcher, {
+		refreshInterval: 0,
+		revalidateOnReconnect: true,
+		revalidateOnFocus: false,
+		refreshWhenHidden: false,
+	});
 
 	return { data, error, isLoading };
 };

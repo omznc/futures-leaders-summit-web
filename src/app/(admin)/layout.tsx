@@ -22,10 +22,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<>
 			<html lang='en' className={inter.className}>
-				<body className='flex w-screen h-screen bg-secondary-gray'>
+				<body className='flex transition-all  w-screen h-screen bg-secondary-gray'>
 					{showSidebar && <Sidebar />}
-					<div className='flex flex-col items-center h-full justify-start w-full p-8'>
-						<div className='flex flex-col h-full max-w-[1000px] w-full p-8'>
+					<div className='flex transition-all flex-col overflow-auto items-center h-full w-full justify-start p-8'>
+						<div className='flex transition-all  flex-col h-full w-full max-w-[1000px] min-w-[200px] p-8'>
 							{children}
 						</div>
 					</div>
