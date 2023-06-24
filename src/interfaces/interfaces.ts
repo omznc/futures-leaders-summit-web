@@ -19,3 +19,20 @@ export interface IPayment {
 	name: string;
 	icon: string;
 }
+
+export interface ISponsor {
+	name: string;
+	image: string;
+	link: string;
+}
+
+export interface ISponsors {
+	category: string;
+	members: ISponsor[];
+}
+
+export interface IUser {
+	name: string;
+	role: string;
+	token: string;
+}

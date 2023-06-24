@@ -1,5 +1,4 @@
 import styles from './page.module.css';
-import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 import { Metadata } from 'next';
 import { title } from '@helpers/seo';
 import Title from '@components/Title/Title';
@@ -9,7 +8,7 @@ import { Button } from '@components/Button/Button';
 
 export const metadata: Metadata = {
 	title: `Contact | ${title}`,
-	description: `Contacts of the Futures Leaders Summit`,
+	description: `Contacts the Futures Leaders Summit`,
 };
 
 export default function Page() {
@@ -28,7 +27,6 @@ export default function Page() {
 			<div className={styles.backgroundOverlay}>
 				<Image src={Hex} alt='decor' width={428} height={653} priority={true} />
 			</div>
-			<OverlayBottom />
 		</>
 	);
 }

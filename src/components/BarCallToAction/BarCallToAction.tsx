@@ -20,8 +20,8 @@ export function BarCallToAction({
 	return (
 		<div className={styles.bar}>
 			<h1 className={classes(styles.title, anton.className)}>
-				{title.split(' ').map(item => (
-					<span key={item}>{item}</span>
+				{title.split(' ').map((item, index) => (
+					<span key={`${item}-${index}`}>{item}</span>
 				))}
 			</h1>
 			<Button link={buttonLink} title={buttonTitle} style={'black'} />

@@ -1,9 +1,7 @@
-import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 import { Metadata } from 'next';
 import { title } from '@helpers/seo';
 import { Information } from '@components/Information/Information';
 import { BarInformation } from '@components/BarInformation/BarInformation';
-import styles from './page.module.css';
 
 export const metadata: Metadata = {
 	title: `About | ${title}`,
@@ -12,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<div className={styles.main}>
+		<>
 			<Information title={'ABOUT THE SUMMIT'}>
 				<p>
 					The vision of the{' '}
@@ -40,22 +38,18 @@ export default function Page() {
 				<p>
 					The running engine behind the event are the{' '}
 					<span>incredible scholars, alumni, volunteers, and staffers</span> of
-					the Foundation, supported by our
+					the Foundation, supported by our{' '}
 					<span>mentors, donors, ambassadors</span>, and{' '}
 					<span>many others</span> that find our cause close to their heart.
 				</p>
 			</Information>
-			<BarInformation
-				title={'THE PURPOSE OF THE SUMMIT'}
-				description={
-					'Positioning the Futures Leaders Summit as the leading platform' +
-					' in the country for ongoing collaboration between young STEM leaders,' +
-					' the local economy and the global community with the aim of creating' +
-					' the next generation of change makers that will transform' +
-					' Bosnia and Herzegovina into a prosperous nation.'
-				}
-			/>
-			<OverlayBottom />
-		</div>
+			<BarInformation title={'THE PURPOSE OF THE SUMMIT'}>
+				Positioning the Futures Leaders Summit as the leading platform in the
+				country for ongoing collaboration between young STEM leaders, the local
+				economy and the global community with the aim of creating the next
+				generation of change makers that will transform Bosnia and Herzegovina
+				into a prosperous nation.
+			</BarInformation>
+		</>
 	);
 }

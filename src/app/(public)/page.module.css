@@ -7,8 +7,9 @@
 	background: var(--primary-gray);
 	position: relative;
 	z-index: 1;
-	margin-bottom: 700px;
+	margin-bottom: 100vh;
 	overflow: hidden;
+	padding-top: 100px;
 }
 
 .hero {
@@ -51,6 +52,7 @@
 	transition: all 0.1s ease-out;
 	animation: fadein 0.5s forwards 0.5s;
 	z-index: 3;
+	margin-top: -100px;
 }
 
 .hero .background {

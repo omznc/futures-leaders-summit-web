@@ -5,7 +5,6 @@ import { Information } from '@components/Information/Information';
 import { Keynotes } from '@components/Keynotes/Keynotes';
 import HeroBackground from '@public/hero.webp';
 import HeroLogo from '@public/logos/logo-stem.svg';
-import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 import SponsorsBar from '@components/SponsorsBar/SponsorsBar';
 
 export default function Page() {
@@ -39,10 +38,8 @@ export default function Page() {
 				buttonLink={'/schedule'}
 			/>
 			{/* Async components aren't supported by TS, yet. */}
-			{/* @ts-expect-error Server Component */}
 			<Keynotes />
 			<SponsorsBar />
-			<OverlayBottom />
 		</>
 	);
 }

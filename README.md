@@ -33,7 +33,7 @@ import SomeImage from '../../../../public/some-image.webp';
 import ISomeInterface from '../interfaces/ISomeInterface';
 ```
 
-### Components
+### Components & Styling
 
 Components are stored in the `src/components` directory.
 
@@ -49,13 +49,30 @@ src
 └── components
     └── Footer
         ├── Footer.tsx
-        ├── style.module.css
+        ├── style.module.css (if not using tailwind)
         └── readme.md (optional, but useful for documentation)
 ```
+
+### Tailwind
+
+Just use it as you normally would, no need for the `style.module.css` file. You
+have the following colors as custom colors:
+
+- `theme-color`
+- `primary-gray`
+- `secondary-gray`
+
+### If you're not using tailwind
 
 Stylesheets use CSS Modules, and are stored next to the component they're used
 in. The stylesheet should be named `style.module.css`, and should be imported as
 `styles` in the component.
+
+You have the following colors as `var()`-s:
+
+- `--theme-color`
+- `--primary-gray`
+- `--secondary-gray`
 
 If you're using more than 1 class in an element, use
 `[styles.class1, styles.class2].join(' ')` to join the classes together, instead

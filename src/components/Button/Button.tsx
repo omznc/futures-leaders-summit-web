@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './style.module.css';
+import { ReactNode } from 'react';
 
 type ButtonProps = {
 	title: string;
@@ -22,6 +23,33 @@ export function Button({ title, link, style = 'yellow' }: ButtonProps) {
 				</Link>
 			)}
 			{!link && title}
+		</button>
+	);
+}
+
+type AdminPanelButtonProps = {
+	title: string;
+	onClick?: () => void;
+	icon?: ReactNode;
+	customStyle?: string;
+	disabled?: boolean;
+};
+
+export function AdminPanelButton({
+	title,
+	onClick,
+	icon,
+	customStyle,
+	disabled,
+}: AdminPanelButtonProps) {
+	return (
+		<button
+			onClick={onClick}
+			disabled={disabled}
+			className={`flex gap-4 active:scale-95 justify-center items-center h-10 rounded-xl cursor-pointer bg-opacity-10 bg-white transition-all hover:bg-opacity-20 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-5 ${customStyle} disabled:opacity-50`}
+		>
+			{icon}
+			{title}
 		</button>
 	);
 }

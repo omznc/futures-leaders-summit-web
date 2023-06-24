@@ -13,7 +13,7 @@
 	background-color: var(--secondary-gray);
 	user-select: none;
 	opacity: 0;
-	animation: appear 0.3s ease forwards 0.5s;
+	animation: appear 0.3s ease forwards;
 }
 
 .footer h2 {
@@ -34,7 +34,7 @@
 .info p {
 	margin-bottom: 2rem;
 	font-size: 1.2rem;
-	width: 50%;
+	width: 80%;
 }
 
 .social {
@@ -164,6 +164,9 @@
 
 @keyframes appear {
 	0% {
+		opacity: 0;
+	}
+	99% {
 		opacity: 0;
 	}
 	100% {

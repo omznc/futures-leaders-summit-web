@@ -1,19 +1,18 @@
-import './globals.css';
+import '@app/globals.css';
 import Header from '@components/Header/Header';
 import { Inter } from 'next/font/google';
 import { Footer } from '@components/Footer/Footer';
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { description, title } from '@helpers/seo';
-import Favicon from '@public/favicon.ico';
-import styles from '@app/venue/page.module.css';
+import styles from './page.module.css';
+import { OverlayBottom } from '@components/OverlayBottom/OverlayBottom';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: title,
 	description: description,
-	icons: Favicon.src,
 	openGraph: {
 		title: title,
 		description: description,
@@ -37,7 +36,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			<html lang='en' className={inter.className}>
 				<body>
 					<Header />
-					<main className={styles.main}>{children}</main>
+					<main className={styles.main}>
+						{children}
+						<OverlayBottom />
+					</main>
 					<Footer />
 				</body>
 			</html>
