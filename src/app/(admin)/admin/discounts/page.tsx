@@ -139,11 +139,7 @@ function TableRow({ data }: { data: Discount }) {
 				data={'Delete'}
 				onClick={() => {
 					DeleteDiscount(data.id, user?.token!)
-						.then(res => {
-							if (res === 'error') {
-								alert('Error deleting discount');
-								return;
-							}
+						.then(() => {
 							alert('Discount deleted (not really)');
 						})
 						.catch(() => {
