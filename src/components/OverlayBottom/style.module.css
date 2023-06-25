@@ -78,9 +78,11 @@
 		margin-left: 0;
 		font-size: 5rem;
 	}
+
 	.title span {
 		text-align: center;
 	}
+
 	.title span:not(:last-child) {
 		width: fit-content;
 	}

@@ -27,7 +27,8 @@
 			"@app/*": ["./src/app/*"],
 			"@interfaces/*": ["./src/interfaces/*"],
 			"@public/*": ["./public/*"],
-			"@helpers/*": ["./src/helpers/*"]
+			"@helpers/*": ["./src/helpers/*"],
+			"@stores/*": ["./src/stores/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

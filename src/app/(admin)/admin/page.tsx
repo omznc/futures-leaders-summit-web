@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { redirect, useRouter } from 'next/navigation';
 import FLSLogo from '@public/logos/logo-fls.svg';
 import Image from 'next/image';
-import useUserStore from '@/src/stores/userStore';
+import useUserStore from '@stores/userStore';
 import toast from 'react-hot-toast';
 
 type LoginCredentials = {

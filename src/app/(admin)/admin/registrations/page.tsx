@@ -2,8 +2,7 @@
 
 import { AdminPanelButton } from '@components/Button/Button';
 import { FaDownload } from 'react-icons/fa';
-import useUserStore from '@/src/stores/userStore';
-
+import useUserStore from '@stores/userStore';
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
 import { useEffect } from 'react';

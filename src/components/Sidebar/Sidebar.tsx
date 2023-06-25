@@ -16,7 +16,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import FLSLogo from '@public/logos/logo-fls.svg';
 import FLSLogoSmall from '@public/logos/logo-fls-small.svg';
 import Image from 'next/image';
-import useUserStore from '@/src/stores/userStore';
+import useUserStore from '@stores/userStore';
 import styles from './style.module.css';
 import { classes } from '@helpers/classes';
 

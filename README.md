@@ -58,9 +58,9 @@ src
 Just use it as you normally would, no need for the `style.module.css` file. You
 have the following colors as custom colors:
 
-- `theme-color`
-- `primary-gray`
-- `secondary-gray`
+-   `theme-color`
+-   `primary-gray`
+-   `secondary-gray`
 
 ### If you're not using tailwind
 
@@ -70,9 +70,9 @@ in. The stylesheet should be named `style.module.css`, and should be imported as
 
 You have the following colors as `var()`-s:
 
-- `--theme-color`
-- `--primary-gray`
-- `--secondary-gray`
+-   `--theme-color`
+-   `--primary-gray`
+-   `--secondary-gray`
 
 If you're using more than 1 class in an element, use
 `[styles.class1, styles.class2].join(' ')` to join the classes together, instead
