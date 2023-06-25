@@ -10,3 +10,29 @@
 .slideInRight {
 	animation: 0.2s ease-out 0s 1 slideInRight forwards;
 }
+
+.shiny {
+	position: relative;
+	border: none;
+	border-radius: 10px;
+	font-weight: bold;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.shiny::after {
+	content: '';
+	position: absolute;
+	top: calc(var(--y, 0) * 1px - 100px);
+	left: calc(var(--x, 0) * 1px - 100px);
+	width: 200px;
+	height: 200px;
+	background: radial-gradient(rgba(255, 255, 255, 0.48), #3984ff00 50%);
+	filter: blur(20px);
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.shiny:hover::after {
+	opacity: 0.4;
+}

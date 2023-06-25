@@ -20,6 +20,7 @@ import FLSLogoSmall from '@public/logos/logo-fls-small.svg';
 import Image from 'next/image';
 import useUserStore from '@/src/stores/userStore';
 import styles from './style.module.css';
+import { classes } from '@helpers/classes';
 
 const sidebarEntries = [
 	{
@@ -176,7 +177,20 @@ function SidebarEntry({ title, link, icon, expanded }: SidebarEntryProps) {
 	const [tooltipOpen, setTooltipOpen] = useState(false);
 
 	return (
-		<div className='h-10'>
+		<div
+			className={classes('h-10', styles.shiny)}
+			onMouseMove={e => {
+				const { x, y } = e.currentTarget.getBoundingClientRect();
+				e.currentTarget.style.setProperty(
+					'--x',
+					(e.clientX - x).toString()
+				);
+				e.currentTarget.style.setProperty(
+					'--y',
+					(e.clientY - y).toString()
+				);
+			}}
+		>
 			{tooltipOpen && !expanded && <Tooltip>{title}</Tooltip>}
 			<Link
 				href={link}
@@ -187,6 +201,7 @@ function SidebarEntry({ title, link, icon, expanded }: SidebarEntryProps) {
 				}`}
 				onMouseEnter={() => setTooltipOpen(true)}
 				onMouseLeave={() => setTooltipOpen(false)}
+				style={{}}
 			>
 				<div
 					className={`flex items-center ${
