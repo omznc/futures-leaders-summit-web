@@ -61,18 +61,19 @@ export default function Sidebar() {
 
 	return (
 		<div
-			className={`${
-				expanded ? 'w-[300px]' : 'w-[110px]'
-			} brightness-125 ${
-				styles.slideInRight
-			} bg-secondary-gray px-4 py-12 h-screen justify-between flex flex-col border-r-[1px] border-white border-opacity-10 transition-all`}
+			className={classes(
+				expanded ? 'w-[300px]' : 'w-[110px]',
+				styles.slideInRight,
+				'brightness-125  bg-secondary-gray px-4 py-12 h-screen justify-between flex flex-col border-r-[1px] border-white border-opacity-10 transition-all'
+			)}
 		>
 			<div className='flex flex-col h-1/2 min-h-[350px] gap-8 select-none'>
 				<div className='flex h-1/4 overflow-hidden  flex-col gap-2'>
 					<div
-						className={`w-[250px] h-fit transition-all ${
-							expanded ? 'justify-center' : 'justify-start'
-						} items-center flex`}
+						className={classes(
+							expanded ? 'justify-center' : 'justify-start',
+							'w-[250px] h-fit transition-all items-center flex'
+						)}
 					>
 						{expanded ? (
 							<Image
@@ -88,6 +89,7 @@ export default function Sidebar() {
 								alt='FLS Logo'
 								width={75}
 								height={75}
+								priority={true}
 							/>
 						)}
 					</div>
@@ -107,15 +109,17 @@ export default function Sidebar() {
 
 			<div className='w-full flex select-none flex-col gap-2'>
 				<div
-					className={`flex gap-4  items-center h-10 rounded-xl cursor-pointer bg-opacity-0 bg-white transition-all hover:bg-opacity-20 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-5 ${
-						!expanded && 'justify-center items-center'
-					}`}
+					className={classes(
+						!expanded ? 'justify-center items-center' : '',
+						'flex gap-4  items-center h-10 rounded-xl cursor-pointer bg-opacity-0 bg-white transition-all hover:bg-opacity-20 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-5'
+					)}
 					onClick={() => setExpanded(!expanded)}
 				>
 					<div
-						className={`flex items-center ${
-							expanded ? 'ml-0' : 'w-full ml-4'
-						} transition-all`}
+						className={classes(
+							expanded ? 'ml-0' : 'w-full ml-4',
+							'flex items-center transition-all'
+						)}
 						style={{ minWidth: expanded ? 'auto' : '16px' }}
 					>
 						{expanded ? (
@@ -125,9 +129,10 @@ export default function Sidebar() {
 						)}
 					</div>
 					<span
-						className={`${
-							expanded ? 'opacity-100' : 'opacity-0'
-						} transition-opacity duration-200`}
+						className={classes(
+							expanded ? 'opacity-100' : 'opacity-0',
+							'transition-opacity duration-200'
+						)}
 					>
 						{expanded && 'Collapse'}{' '}
 					</span>
@@ -135,22 +140,25 @@ export default function Sidebar() {
 				<Link
 					onClick={() => clearUser()}
 					href='/admin'
-					className={`flex gap-4 justify-start items-center h-10 rounded-xl bg-red-500 bg-opacity-10 transition-all hover:bg-opacity-100 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-10 ${
-						!expanded && 'justify-center items-center'
-					}`}
+					className={classes(
+						!expanded ? 'justify-center items-center' : '',
+						'flex gap-4 justify-start items-center h-10 rounded-xl bg-red-500 bg-opacity-10 transition-all hover:bg-opacity-100 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-10'
+					)}
 				>
 					<div
-						className={`flex items-center ${
-							expanded ? 'ml-0' : 'w-full ml-4'
-						} transition-all`}
+						className={classes(
+							expanded ? 'ml-0' : 'w-full ml-4',
+							'flex items-center transition-all'
+						)}
 						style={{ minWidth: expanded ? 'auto' : '16px' }}
 					>
 						<FaSignOutAlt />
 					</div>
 					<span
-						className={`${
-							expanded ? 'opacity-100' : 'opacity-0'
-						} transition-opacity duration-200`}
+						className={classes(
+							expanded ? 'opacity-100' : 'opacity-0',
+							'transition-opacity duration-200'
+						)}
 					>
 						{expanded && 'Logout'}
 					</span>
@@ -183,7 +191,7 @@ function SidebarEntry({ title, link, icon, expanded }: SidebarEntryProps) {
 	const [tooltipOpen, setTooltipOpen] = useState(false);
 
 	return (
-		<div className={classes('h-10')}>
+		<div className='h-10'>
 			{tooltipOpen && !expanded && <Tooltip>{title}</Tooltip>}
 			<Link
 				onMouseMove={e => {
@@ -198,27 +206,31 @@ function SidebarEntry({ title, link, icon, expanded }: SidebarEntryProps) {
 					);
 				}}
 				href={link}
-				className={`text-white h-full flex justify-start items-center gap-4 text-md overflow-hidden whitespace-nowrap rounded-xl px-4 py-2 transition-all border-[1px] border-white border-opacity-10 ${
+				className={classes(
+					'text-white h-full flex justify-start items-center gap-4 text-md overflow-hidden whitespace-nowrap rounded-xl px-4 py-2 transition-all border-[1px] border-white border-opacity-10',
 					active
 						? 'opacity-100 bg-white bg-opacity-10 hover:bg-opacity-15'
-						: 'opacity-50 hover:opacity-80 bg-opacity-20 hover:bg-white hover:bg-opacity-10'
-				} ${styles.shiny}`}
+						: 'opacity-50 hover:opacity-80 bg-opacity-20 hover:bg-white hover:bg-opacity-10',
+					styles.shiny
+				)}
 				onMouseEnter={() => setTooltipOpen(true)}
 				onMouseLeave={() => setTooltipOpen(false)}
 				style={{}}
 			>
 				<div
-					className={`flex items-center ${
-						expanded ? 'ml-0' : 'ml-4'
-					} transition-all`}
+					className={classes(
+						expanded ? 'ml-0' : 'ml-4',
+						'flex items-center transition-all'
+					)}
 					style={{ minWidth: expanded ? 'auto' : '16px' }}
 				>
 					{icon}
 				</div>
 				<span
-					className={`${
-						expanded ? 'opacity-100' : 'opacity-0'
-					} transition-opacity duration-200`}
+					className={classes(
+						expanded ? 'opacity-100' : 'opacity-0',
+						'transition-opacity duration-200'
+					)}
 				>
 					{title}
 				</span>
