@@ -2,8 +2,10 @@
 
 import {
 	FaCarAlt,
+	FaHome,
 	FaMoneyCheck,
 	FaSignOutAlt,
+	FaStar,
 	FaTags,
 	FaUsers,
 } from 'react-icons/fa';
@@ -40,6 +42,16 @@ const sidebarEntries = [
 		title: 'Discounts',
 		link: '/admin/discounts',
 		icon: <FaTags />,
+	},
+	{
+		title: 'Supporters',
+		link: '/admin/supporters',
+		icon: <FaStar />,
+	},
+	{
+		title: 'Main Website',
+		link: '/',
+		icon: <FaHome />,
 	},
 ];
 
@@ -89,17 +101,30 @@ export default function Sidebar() {
 
 			<div className='w-full flex select-none flex-col gap-2'>
 				<div
-					className={`flex gap-4  items-center h-10 rounded-xl cursor-pointer bg-opacity-10 bg-white transition-all hover:bg-opacity-20 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-5 ${
+					className={`flex gap-4  items-center h-10 rounded-xl cursor-pointer bg-opacity-0 bg-white transition-all hover:bg-opacity-20 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-5 ${
 						!expanded && 'justify-center items-center'
 					}`}
 					onClick={() => setExpanded(!expanded)}
 				>
-					{expanded ? (
-						<BsLayoutTextSidebar />
-					) : (
-						<BsLayoutTextSidebarReverse />
-					)}
-					{expanded && 'Collapse'}
+					<div
+						className={`flex items-center ${
+							expanded ? 'ml-0' : 'w-full ml-4'
+						} transition-all`}
+						style={{ minWidth: expanded ? 'auto' : '16px' }}
+					>
+						{expanded ? (
+							<BsLayoutTextSidebar />
+						) : (
+							<BsLayoutTextSidebarReverse />
+						)}
+					</div>
+					<span
+						className={`${
+							expanded ? 'opacity-100' : 'opacity-0'
+						} transition-opacity duration-200`}
+					>
+						{expanded && 'Collapse'}{' '}
+					</span>
 				</div>
 				<Link
 					onClick={() => clearUser()}
@@ -108,8 +133,21 @@ export default function Sidebar() {
 						!expanded && 'justify-center items-center'
 					}`}
 				>
-					<FaSignOutAlt />
-					{expanded && 'Logout'}
+					<div
+						className={`flex items-center ${
+							expanded ? 'ml-0' : 'w-full ml-4'
+						} transition-all`}
+						style={{ minWidth: expanded ? 'auto' : '16px' }}
+					>
+						<FaSignOutAlt />
+					</div>
+					<span
+						className={`${
+							expanded ? 'opacity-100' : 'opacity-0'
+						} transition-opacity duration-200`}
+					>
+						{expanded && 'Logout'}
+					</span>
 				</Link>
 			</div>
 		</div>
@@ -139,22 +177,33 @@ function SidebarEntry({ title, link, icon, expanded }: SidebarEntryProps) {
 	const [tooltipOpen, setTooltipOpen] = useState(false);
 
 	return (
-		<div className='h-10 '>
+		<div className='h-10'>
 			{tooltipOpen && !expanded && <Tooltip>{title}</Tooltip>}
 			<Link
 				href={link}
-				className={`text-white h-full flex gap-4 ${
-					!expanded && 'justify-center items-center'
-				} items-center text-md overflow-hidden whitespace-nowrap rounded-xl px-4 py-2 transition-all border-[1px] border-white border-opacity-10 ${
+				className={`text-white h-full flex justify-start items-center gap-4 text-md overflow-hidden whitespace-nowrap rounded-xl px-4 py-2 transition-all border-[1px] border-white border-opacity-10 ${
 					active
 						? 'opacity-100 bg-white bg-opacity-10 hover:bg-opacity-30'
-						: ' opacity-50 hover:opacity-100 hover:bg-white hover:bg-opacity-10 '
+						: 'opacity-50 hover:opacity-100 hover:bg-white hover:bg-opacity-10'
 				}`}
 				onMouseEnter={() => setTooltipOpen(true)}
 				onMouseLeave={() => setTooltipOpen(false)}
 			>
-				{icon}
-				{expanded && title}
+				<div
+					className={`flex items-center ${
+						expanded ? 'ml-0' : 'ml-4'
+					} transition-all`}
+					style={{ minWidth: expanded ? 'auto' : '16px' }}
+				>
+					{icon}
+				</div>
+				<span
+					className={`${
+						expanded ? 'opacity-100' : 'opacity-0'
+					} transition-opacity duration-200`}
+				>
+					{title}
+				</span>
 			</Link>
 		</div>
 	);

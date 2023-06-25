@@ -5,9 +5,10 @@ import { FaCopy, FaPlus } from 'react-icons/fa';
 import useUserStore from '@/src/stores/userStore';
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
-import { ReactNode, useEffect } from 'react';
-import { Discount, FilterDiscountsResponse } from '@interfaces/interfaces';
+import { useEffect } from 'react';
+import { FilterDiscountsResponse } from '@interfaces/interfaces';
 import toast from 'react-hot-toast';
+import { Table, TableData, TableHeader } from '@components/Table/Table';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -61,109 +62,73 @@ export default function Page() {
 					}`}
 				/>
 			) : (
-				<Table data={response} />
+				<Table
+					head={
+						<>
+							<TableHeader title={'ID'} />
+							<TableHeader title={'Name'} />
+							<TableHeader title={'Ticket type'} />
+							<TableHeader title={'Value (%)'} />
+							<TableHeader title={'Available'} />
+							<TableHeader title={'Used'} />
+							<TableHeader title={'Delete'} />
+						</>
+					}
+					body={response.content.map(item => (
+						<tr key={item.id}>
+							<TableData
+								data={
+									<>
+										<FaCopy className='mr-2' />{' '}
+										{item?.id?.substring(0, 8)}{' '}
+									</>
+								}
+								onClick={() => {
+									navigator.clipboard
+										.writeText(JSON.stringify(item))
+										.then(() =>
+											toast.success(
+												'Copied row to clipboard'
+											)
+										)
+										.catch(() =>
+											toast.error(
+												'Failed to copy to clipboard'
+											)
+										);
+								}}
+							/>
+							<TableData data={item.discountName} />
+							<TableData data={item.relevantTicketType} />
+							<TableData data={item.value} />
+							<TableData data={item.availableUnits} />
+							<TableData data={item.unitsUsed} />
+							<TableData
+								data={'Delete'}
+								onClick={() => {
+									DeleteDiscount(item.id, user?.token!)
+										.then(() => {
+											toast.success(
+												'Discount deleted (not really)'
+											);
+										})
+										.catch(() => {
+											toast.error(
+												'Failed to delete discount'
+											);
+										});
+								}}
+							/>
+						</tr>
+					))}
+				/>
 			)}
 		</div>
 	);
 }
 
-function Table({ data }: { data: FilterDiscountsResponse }) {
-	return (
-		<div className='overflow-x-auto rounded-lg border border-gray-200'>
-			<table className='w-full min-w-min divide-y-2 divide-gray-200 bg-white bg-opacity-100 text-sm'>
-				<thead className='ltr:text-left rtl:text-right'>
-					<tr>
-						<TableHeader title={'ID'} />
-						<TableHeader title={'Name'} />
-						<TableHeader title={'Ticket type'} />
-						<TableHeader title={'Value (%)'} />
-						<TableHeader title={'Available'} />
-						<TableHeader title={'Used'} />
-						<TableHeader title={'Delete'} />
-					</tr>
-				</thead>
-
-				<tbody className='divide-y divide-gray-200'>
-					{data?.content.map(payment => (
-						<TableRow key={payment.id} data={payment} />
-					))}
-				</tbody>
-			</table>
-		</div>
-	);
-}
-
-function TableHeader({ title }: { title: string }) {
-	return (
-		<th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900'>
-			{title}
-		</th>
-	);
-}
-
-function TableData({
-	data,
-	onClick,
-}: {
-	data: ReactNode;
-	onClick?: () => void;
-}) {
-	return (
-		<td
-			onClick={onClick}
-			className={`whitespace-nowrap flex-wrap px-4 py-2 text-gray-700 ${
-				onClick && 'cursor-pointer hover:bg-neutral-100 transition-all'
-			}`}
-		>
-			<div className='flex gap-2 items-center'>{data}</div>
-		</td>
-	);
-}
-
-function TableRow({ data }: { data: Discount }) {
-	const { user } = useUserStore();
-
-	return (
-		<tr>
-			<TableData
-				data={
-					<>
-						<FaCopy className='mr-2' /> {data?.id?.substring(0, 8)}{' '}
-					</>
-				}
-				onClick={() => {
-					navigator.clipboard
-						.writeText(JSON.stringify(data))
-						.then(() => toast.success('Copied to clipboard'))
-						.catch(() =>
-							toast.error('Failed to copy to clipboard')
-						);
-				}}
-			/>
-			<TableData data={data.discountName} />
-			<TableData data={data.relevantTicketType} />
-			<TableData data={data.value} />
-			<TableData data={data.availableUnits} />
-			<TableData data={data.unitsUsed} />
-			<TableData
-				data={'Delete'}
-				onClick={() => {
-					DeleteDiscount(data.id, user?.token!)
-						.then(() => {
-							toast.success('Discount deleted (not really)');
-						})
-						.catch(() => {
-							toast.error('Failed to delete discount');
-						});
-				}}
-			/>
-		</tr>
-	);
-}
-
 const DeleteDiscount = async (id: string, token: string) => {
 	alert('Pretended to delete discount with id: ' + id);
-	return;
 	// let res = await fetch(
 	// 	`https://fls-backend.herokuapp.com/discount/delete-discount/${id}`,
 	// 	{

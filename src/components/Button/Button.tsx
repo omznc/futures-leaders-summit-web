@@ -46,7 +46,7 @@ export function AdminPanelButton({
 		<button
 			onClick={onClick}
 			disabled={disabled}
-			className={`flex gap-4 active:scale-95 justify-center items-center h-10 rounded-xl cursor-pointer bg-opacity-10 bg-white transition-all hover:bg-opacity-20 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-5 ${customStyle} disabled:opacity-50`}
+			className={`flex gap-4 active:scale-95 justify-center items-center h-10 rounded-xl cursor-pointer bg-opacity-10 bg-white transition-all hover:bg-opacity-20 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-5 ${customStyle} disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-opacity-10 disabled:active:scale-100`}
 		>
 			{icon}
 			{title}

@@ -8,9 +8,10 @@ import {
 	AiOutlineTwitter,
 } from 'react-icons/ai';
 import { ISocial } from '@interfaces/interfaces';
+import { ReactNode } from 'react';
 
 // This is where we add new socials.
-const socialIcons: { [key: string]: JSX.Element } = {
+const socialIcons: { [key: string]: ReactNode } = {
 	linkedin: <AiOutlineLinkedin />,
 	twitter: <AiOutlineTwitter />,
 	github: <AiOutlineGithub />,

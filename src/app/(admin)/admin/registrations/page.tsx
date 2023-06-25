@@ -6,14 +6,14 @@ import useUserStore from '@/src/stores/userStore';
 
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
-import { ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
 import {
 	FilterRegistrationsResponse,
 	PersonalDocument,
-	Registration,
 } from '@interfaces/interfaces';
 import { parseDate } from '@helpers/time';
 import toast from 'react-hot-toast';
+import { Table, TableData, TableHeader } from '@components/Table/Table';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -66,111 +66,74 @@ export default function Page() {
 					}`}
 				/>
 			) : (
-				<Table data={response} />
+				<Table
+					head={
+						<>
+							<TableHeader title={'ID'} />
+							<TableHeader title={'Full Name'} />
+							<TableHeader title={'Birth Date'} />
+							<TableHeader title={'Email'} />
+							<TableHeader title={'Phone Number'} />
+							<TableHeader title={'Field'} />
+							<TableHeader title={'Tier'} />
+							<TableHeader title={'Code'} />
+							<TableHeader title={'Date'} />
+							<TableHeader title={'LinkedIn'} />
+							<TableHeader title={'Resume'} />
+						</>
+					}
+					body={response.content.map(item => (
+						<tr key={item.id}>
+							<TableData
+								data={
+									<>
+										<FaCopy className='mr-2' />{' '}
+										{item?.id?.substring(0, 8)}{' '}
+									</>
+								}
+								onClick={() => {
+									navigator.clipboard
+										.writeText(JSON.stringify(item))
+										.then(() =>
+											toast.success(
+												'Copied row to clipboard'
+											)
+										)
+										.catch(() =>
+											toast.error(
+												'Failed to copy to clipboard'
+											)
+										);
+								}}
+							/>
+							<TableData
+								data={`${item?.firstName} ${item?.lastName}`}
+							/>
+							<TableData data={parseDate(item?.birthDate)} />
+							<TableData data={item?.email} />
+							<TableData data={item?.phoneNumber} />
+							<TableData data={item?.fieldOfStudy} />
+							<TableData data={item?.ticketType} />
+							<TableData data={item?.paymentConfirmationCode} />
+							<TableData data={parseDate(item?.createdAt)} />
+							<TableData data={item?.linkedinUrl} />
+							<TableData
+								data={item?.personalDocument ? 'Download' : ''}
+								onClick={() => {
+									item?.personalDocument &&
+										DownloadCV(
+											item.personalDocument,
+											user?.token as string
+										).catch(() =>
+											toast.error('Failed to download CV')
+										);
+								}}
+							/>
+						</tr>
+					))}
+				/>
 			)}
 		</div>
-	);
-}
-
-function Table({ data }: { data: FilterRegistrationsResponse }) {
-	return (
-		<div className='overflow-x-auto rounded-lg border border-gray-200'>
-			<table className='w-full min-w-min divide-y-2 divide-gray-200 bg-white p-4 bg-opacity-100 text-sm'>
-				<thead className='ltr:text-left rtl:text-right'>
-					<tr>
-						<TableHeader title={'ID'} />
-						<TableHeader title={'Full Name'} />
-						<TableHeader title={'Birth Date'} />
-						<TableHeader title={'Email'} />
-						<TableHeader title={'Phone Number'} />
-						<TableHeader title={'Field'} />
-						<TableHeader title={'Tier'} />
-						<TableHeader title={'Code'} />
-						<TableHeader title={'Date'} />
-						<TableHeader title={'LinkedIn'} />
-						<TableHeader title={'Resume'} />
-					</tr>
-				</thead>
-
-				<tbody className='divide-y divide-gray-200'>
-					{data?.content.map(registration => (
-						<TableRow key={registration.id} data={registration} />
-					))}
-				</tbody>
-			</table>
-		</div>
-	);
-}
-
-function TableHeader({ title }: { title: string }) {
-	return (
-		<th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900'>
-			{title}
-		</th>
-	);
-}
-
-function TableData({
-	data,
-	onClick,
-}: {
-	data: ReactNode;
-	onClick?: () => void;
-}) {
-	return (
-		<td
-			onClick={onClick}
-			className={`whitespace-nowrap flex-wrap px-4 py-2 text-gray-700 ${
-				onClick &&
-				data &&
-				'cursor-pointer hover:bg-neutral-200 bg-neutral-100 transition-all'
-			}`}
-		>
-			<div className='flex gap-2 items-center'>{data}</div>
-		</td>
-	);
-}
-
-function TableRow({ data }: { data: Registration }) {
-	const { user } = useUserStore();
-
-	return (
-		<tr>
-			<TableData
-				data={
-					<>
-						<FaCopy className='mr-2' /> {data?.id?.substring(0, 8)}{' '}
-					</>
-				}
-				onClick={() => {
-					navigator.clipboard
-						.writeText(JSON.stringify(data))
-						.then(() => toast.success('Copied to clipboard'))
-						.catch(() =>
-							toast.error('Failed to copy to clipboard')
-						);
-				}}
-			/>
-			<TableData data={`${data?.firstName} ${data?.lastName}`} />
-			<TableData data={parseDate(data?.birthDate)} />
-			<TableData data={data?.email} />
-			<TableData data={data?.phoneNumber} />
-			<TableData data={data?.fieldOfStudy} />
-			<TableData data={data?.ticketType} />
-			<TableData data={data?.paymentConfirmationCode} />
-			<TableData data={parseDate(data?.createdAt)} />
-			<TableData data={data?.linkedinUrl} />
-			<TableData
-				data={data?.personalDocument ? 'Download' : ''}
-				onClick={() => {
-					data?.personalDocument &&
-						DownloadCV(
-							data.personalDocument,
-							user?.token as string
-						);
-				}}
-			/>
-		</tr>
 	);
 }
 

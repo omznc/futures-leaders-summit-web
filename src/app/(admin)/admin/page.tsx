@@ -5,6 +5,7 @@ import { redirect, useRouter } from 'next/navigation';
 import FLSLogo from '@public/logos/logo-fls.svg';
 import Image from 'next/image';
 import useUserStore from '@/src/stores/userStore';
+import toast from 'react-hot-toast';
 
 type LoginCredentials = {
 	email: string;
@@ -75,16 +76,19 @@ export default function Page() {
 					/>
 					<button
 						className='px-4 py-2 border-[1px] bg-white text-black rounded-md'
-						onClick={async () => {
-							const success = await login(
-								credentials.email,
-								credentials.password
-							);
-							if (success) {
-								router.push('/admin/payments');
-							} else {
-								alert('Invalid credentials');
-							}
+						onClick={() => {
+							login(credentials.email, credentials.password)
+								.then(success => {
+									if (success) {
+										toast.success(
+											'Logged in successfully.'
+										);
+										router.push('/admin/payments');
+									} else {
+										toast.error('Invalid credentials');
+									}
+								})
+								.catch(err => toast.error(err));
 						}}
 					>
 						Login
