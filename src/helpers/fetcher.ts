@@ -1,7 +1,14 @@
-// @ts-ignore
 import useUserStore from '@/src/stores/userStore';
 import useSWR from 'swr';
 
+/**
+ * Custom hook to fetch data from the server. This needs more work as it currently does not support:
+ * - Pagination
+ * - Custom properties
+ * - Method type
+ * @param url
+ * @returns The data (untyped), error and loading state
+ */
 const useFetcher = (url: string) => {
 	const user = useUserStore(state => state.user);
 	const fetcher = (...args: any[]) =>
