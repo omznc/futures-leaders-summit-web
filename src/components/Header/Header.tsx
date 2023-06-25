@@ -104,6 +104,7 @@ export default function Header() {
 					width={900}
 					height={500}
 					onClick={() => router.push('/')}
+					className='cursor-pointer object-cover'
 				/>
 			</div>
 			<div

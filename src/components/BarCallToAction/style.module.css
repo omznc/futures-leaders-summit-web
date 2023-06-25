@@ -16,6 +16,11 @@
 	padding: 2rem 5rem;
 }
 
+.title {
+	font-size: 4rem;
+	font-weight: 600;
+}
+
 .bar span {
 	padding: 0 0.5rem;
 	transition: all 0.3s ease-out;
