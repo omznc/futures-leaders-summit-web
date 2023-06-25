@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import { FaCopy } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 export function Table({ head, body }: { head: ReactNode; body: ReactNode }) {
 	return (
@@ -46,5 +48,23 @@ export function TableData({
 				{data}
 			</div>
 		</td>
+	);
+}
+
+export function TableDataID({ data }: { data: { id: string } }) {
+	return (
+		<TableData
+			data={
+				<>
+					<FaCopy className='mr-2' /> {data.id?.substring(0, 8)}{' '}
+				</>
+			}
+			onClick={() => {
+				navigator.clipboard
+					.writeText(JSON.stringify(data))
+					.then(() => toast.success('Copied row to clipboard'))
+					.catch(() => toast.error('Failed to copy to clipboard'));
+			}}
+		/>
 	);
 }

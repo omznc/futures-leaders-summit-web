@@ -1,15 +1,19 @@
 'use client';
 
 import { AdminPanelButton } from '@components/Button/Button';
-import { FaCopy, FaDownload } from 'react-icons/fa';
+import { FaDownload } from 'react-icons/fa';
 import useUserStore from '@/src/stores/userStore';
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
 import { useEffect } from 'react';
 import { FilterPaymentsResponse } from '@interfaces/interfaces';
 import { parseDate } from '@helpers/time';
-import toast from 'react-hot-toast';
-import { Table, TableData, TableHeader } from '@components/Table/Table';
+import {
+	Table,
+	TableData,
+	TableDataID,
+	TableHeader,
+} from '@components/Table/Table';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -84,28 +88,8 @@ export default function Page() {
 					}
 					body={response.content.map(item => (
 						<tr key={item.id}>
-							<TableData
-								data={
-									<>
-										<FaCopy className='mr-2' />{' '}
-										{item?.id?.substring(0, 8)}{' '}
-									</>
-								}
-								onClick={() => {
-									navigator.clipboard
-										.writeText(JSON.stringify(item))
-										.then(() =>
-											toast.success(
-												'Copied row to clipboard'
-											)
-										)
-										.catch(() =>
-											toast.error(
-												'Failed to copy to clipboard'
-											)
-										);
-								}}
-							/>
+							<TableDataID data={item} />
+
 							<TableData data={item?.payerFullName} />
 							<TableData data={item?.paymentDescription} />
 							<TableData data={item?.paymentAmount} />

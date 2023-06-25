@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { redirect, useRouter } from 'next/navigation';
 import FLSLogo from '@public/logos/logo-fls.svg';
 import Image from 'next/image';
@@ -20,10 +20,11 @@ export default function Page() {
 		password: '',
 	});
 
-	if (user) {
-		redirect('/admin/payments');
-		return <></>;
-	}
+	useEffect(() => {
+		if (user) {
+			redirect('/admin/payments');
+		}
+	}, [user]);
 
 	return (
 		<div className='w-full h-screen flex justify-center items-center'>
