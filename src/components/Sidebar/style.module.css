@@ -35,3 +35,29 @@
 .shiny:hover::after {
 	opacity: 0.4;
 }
+
+@keyframes bigLogoEntrance {
+	0% {
+		transform: translateX(-18%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.bigLogoEntrance {
+	animation: 0.2s ease-out 0s 1 bigLogoEntrance forwards;
+}
+
+@keyframes smallLogoEntrance {
+	0% {
+		transform: translateX(40%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.smallLogoEntrance {
+	animation: 0.2s ease-out 0s 1 smallLogoEntrance forwards;
+}

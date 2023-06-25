@@ -75,9 +75,15 @@ export default function Sidebar() {
 						} items-center flex`}
 					>
 						{expanded ? (
-							<Image src={FLSLogo} alt='FLS Logo' height={82} />
+							<Image
+								className={styles.bigLogoEntrance}
+								src={FLSLogo}
+								alt='FLS Logo'
+								height={82}
+							/>
 						) : (
 							<Image
+								className={styles.smallLogoEntrance}
 								src={FLSLogoSmall}
 								alt='FLS Logo'
 								width={75}
