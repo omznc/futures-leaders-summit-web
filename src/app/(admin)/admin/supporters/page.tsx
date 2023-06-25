@@ -25,12 +25,14 @@ export default function Page() {
 					<div className='h-2.5 bg-gray-200 rounded-full w-72 dark:bg-gray-700 mb-4'></div>
 				</div>
 			</div>
-			<div className='flex gap-4 justify-center items-center'>
-				<AdminPanelButton
-					disabled={true}
-					title={'To Be Implemented'}
-					icon={<FaPlus />}
-				/>
+			<div className='flex w-full justify-center items-center'>
+				<div className='flex max-w-[1000px] min-w-fit whitespace-nowrap gap-8 justify-center items-center'>
+					<AdminPanelButton
+						disabled={true}
+						title={'To Be Implemented'}
+						icon={<FaPlus />}
+					/>
+				</div>
 			</div>
 			<div
 				className={`w-full flex flex-col justify-center items-center h-full bg-white bg-opacity-10 rounded-lg ${'animate-pulse bg-opacity-25'}`}

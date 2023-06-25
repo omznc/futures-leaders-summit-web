@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 						}}
 					/>
 					<div className='flex transition-all flex-col overflow-auto items-center h-full w-full justify-start p-8'>
-						<div className='flex transition-all  flex-col h-full w-full max-w-[1000px] min-w-[200px] p-8'>
+						<div className='flex transition-all  flex-col h-full w-full min-w-[200px] p-8'>
 							{children}
 						</div>
 					</div>

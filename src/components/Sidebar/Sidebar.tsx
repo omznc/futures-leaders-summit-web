@@ -2,7 +2,6 @@
 
 import {
 	FaCarAlt,
-	FaHome,
 	FaMoneyCheck,
 	FaSignOutAlt,
 	FaStar,
@@ -48,11 +47,11 @@ const sidebarEntries = [
 		link: '/admin/supporters',
 		icon: <FaStar />,
 	},
-	{
-		title: 'Main Website',
-		link: '/',
-		icon: <FaHome />,
-	},
+	// {
+	// 	title: 'Main Website',
+	// 	link: '/',
+	// 	icon: <FaHome />,
+	// },
 ];
 
 export default function Sidebar() {

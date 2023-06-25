@@ -48,17 +48,19 @@ export default function Page() {
 					</div>
 				)}
 			</div>
-			<div className='flex gap-8 justify-center items-center'>
-				<AdminPanelButton
-					title={'Download Payments'}
-					disabled={isLoading}
-					icon={<FaDownload />}
-				/>
-				<AdminPanelButton
-					title={'Download Customers'}
-					disabled={isLoading}
-					icon={<FaDownload />}
-				/>
+			<div className='flex w-full justify-center items-center'>
+				<div className='flex max-w-[1000px] min-w-fit whitespace-nowrap gap-8 justify-center items-center'>
+					<AdminPanelButton
+						title={'Download Payments'}
+						disabled={isLoading}
+						icon={<FaDownload />}
+					/>
+					<AdminPanelButton
+						title={'Download Customers'}
+						disabled={isLoading}
+						icon={<FaDownload />}
+					/>
+				</div>
 			</div>
 			{isLoading ? (
 				<div

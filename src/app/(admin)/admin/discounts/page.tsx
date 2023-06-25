@@ -48,12 +48,14 @@ export default function Page() {
 					</div>
 				)}
 			</div>
-			<div className='flex gap-4 justify-center items-center'>
-				<AdminPanelButton
-					disabled={isLoading}
-					title={'Dodaj Popust'}
-					icon={<FaPlus />}
-				/>
+			<div className='flex w-full justify-center items-center'>
+				<div className='flex max-w-[1000px] min-w-fit whitespace-nowrap gap-8 justify-center items-center'>
+					<AdminPanelButton
+						disabled={isLoading}
+						title={'Dodaj Popust'}
+						icon={<FaPlus />}
+					/>
+				</div>
 			</div>
 			{isLoading ? (
 				<div
