@@ -83,7 +83,7 @@ You have the following colors as `var()`-s:
 
 If you're using more than 1 class in an element, use
 `[styles.class1, styles.class2].join(' ')` to join the classes together, instead
-of `${styles.class1} ${styles.class2}`, as it's easier to modify.
+of `${styles.class1} ${styles.class2}`, as it's easier to modify. Or `classes()` from `@helpers/classes`.
 
 The following is an example of a component named`Footer` with a stylesheet.
 
