@@ -6,7 +6,7 @@ import useUserStore from '@stores/userStore';
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
 import { useEffect } from 'react';
-import { FilterDiscountsResponse } from '@interfaces/interfaces';
+import { IFilterDiscountsResponse } from '@interfaces/interfaces';
 import toast from 'react-hot-toast';
 import {
 	Table,
@@ -33,7 +33,7 @@ export default function Page() {
 		return <div>Error: {error}</div>;
 	}
 
-	const response = data as FilterDiscountsResponse;
+	const response = data as IFilterDiscountsResponse;
 
 	return (
 		<div className='flex h-full flex-col gap-8'>

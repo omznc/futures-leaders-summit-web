@@ -4,7 +4,7 @@ import LogoFLS from '@public/logos/logo-fls.svg';
 import LogoBHFF from '@public/logos/logo-bhff.svg';
 import Image from 'next/image';
 import { Button } from '@components/Button/Button';
-import { IPayment, ISocial } from '@interfaces/interfaces';
+import { IPaymentMethod, ISocial } from '@interfaces/interfaces';
 import PayPal from '@public/logos/payment-services/paypal.svg';
 import Mastercard from '@public/logos/payment-services/mastercard.svg';
 import Visa from '@public/logos/payment-services/visa.svg';
@@ -30,7 +30,7 @@ const payments = [
 	{ name: 'Mastercard', icon: Mastercard },
 	{ name: 'Visa', icon: Visa },
 	{ name: 'Maestro', icon: Maestro },
-] as IPayment[];
+] as IPaymentMethod[];
 
 // A component that renders the footer. TODO: The footer is not yet implemented.
 export function Footer() {

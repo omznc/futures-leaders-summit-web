@@ -15,7 +15,7 @@ export interface INavigationItem {
 	url: string;
 }
 
-export interface IPayment {
+export interface IPaymentMethod {
 	name: string;
 	icon: string;
 }
@@ -37,7 +37,7 @@ export interface IUser {
 	token: string;
 }
 
-export interface TravelGrant {
+export interface ITravelGrant {
 	id: string;
 	firstName: string;
 	lastName: string;
@@ -61,13 +61,13 @@ export interface TravelGrant {
 	updatedAt: string;
 }
 
-export interface FilterTravelGrantsResponse {
-	content: TravelGrant[];
-	pageable: Pageable;
+export interface IFilterTravelGrantsResponse {
+	content: ITravelGrant[];
+	pageable: IPageable;
 	last: boolean;
 	totalPages: number;
 	totalElements: number;
-	sort: Sort;
+	sort: ISort;
 	first: boolean;
 	number: number;
 	numberOfElements: number;
@@ -75,7 +75,7 @@ export interface FilterTravelGrantsResponse {
 	empty: boolean;
 }
 
-export interface Registration {
+export interface IRegistration {
 	id: string;
 	firstName: string;
 	lastName: string;
@@ -87,7 +87,7 @@ export interface Registration {
 	foodPreferences: string;
 	linkedinUrl: string;
 	paymentConfirmationCode: string;
-	personalDocument: PersonalDocument | null;
+	personalDocument: IPersonalDocument | null;
 	phoneNumber: string;
 	shirtSize: string;
 	talentPoolAgreement: string;
@@ -95,21 +95,21 @@ export interface Registration {
 	updatedAt: string;
 }
 
-export interface FilterRegistrationsResponse {
-	content: Registration[];
-	pageable: Pageable;
+export interface IFilterRegistrationsResponse {
+	content: IRegistration[];
+	pageable: IPageable;
 	empty: boolean;
 	first: boolean;
 	last: boolean;
 	number: number;
 	numberOfElements: number;
 	size: number;
-	sort: Sort;
+	sort: ISort;
 	totalElements: number;
 	totalPages: number;
 }
 
-export interface PersonalDocument {
+export interface IPersonalDocument {
 	id: string;
 	name: string;
 	type: string;
@@ -117,7 +117,7 @@ export interface PersonalDocument {
 	updatedAt: string;
 }
 
-export interface Customer {
+export interface ICustomer {
 	id: string;
 	name: string;
 	surname: string;
@@ -131,7 +131,7 @@ export interface Customer {
 	updatedAt: string;
 }
 
-export interface Payment {
+export interface IPayment {
 	id: string;
 	payerFullName: string;
 	payerEmail: string;
@@ -150,16 +150,16 @@ export interface Payment {
 	paymentStatus: string;
 	createdAt: string;
 	updatedAt: string;
-	customers: Customer[];
+	customers: ICustomer[];
 }
 
-export interface FilterPaymentsResponse {
-	content: Payment[];
-	pageable: Pageable;
+export interface IFilterPaymentsResponse {
+	content: IPayment[];
+	pageable: IPageable;
 	last: boolean;
 	totalPages: number;
 	totalElements: number;
-	sort: Sort;
+	sort: ISort;
 	first: boolean;
 	number: number;
 	numberOfElements: number;
@@ -167,16 +167,16 @@ export interface FilterPaymentsResponse {
 	empty: boolean;
 }
 
-export interface Pageable {
+export interface IPageable {
 	pageNumber: number;
 	pageSize: number;
 	offset: number;
 	paged: boolean;
-	sort: Sort;
+	sort: ISort;
 	unpaged: boolean;
 }
 
-export interface Discount {
+export interface IDiscount {
 	id: string;
 	discountName: string;
 	value: number;
@@ -187,13 +187,13 @@ export interface Discount {
 	unitsUsed: number;
 }
 
-export interface FilterDiscountsResponse {
-	content: Discount[];
-	pageable: Pageable;
+export interface IFilterDiscountsResponse {
+	content: IDiscount[];
+	pageable: IPageable;
 	last: boolean;
 	totalPages: number;
 	totalElements: number;
-	sort: Sort;
+	sort: ISort;
 	first: boolean;
 	number: number;
 	numberOfElements: number;
@@ -201,7 +201,7 @@ export interface FilterDiscountsResponse {
 	empty: boolean;
 }
 
-export interface Sort {
+export interface ISort {
 	sorted: boolean;
 	unsorted: boolean;
 	empty: boolean;

@@ -6,7 +6,7 @@ import useUserStore from '@/src/stores/userStore';
 import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
 import { useEffect } from 'react';
-import { FilterTravelGrantsResponse } from '@interfaces/interfaces';
+import { IFilterTravelGrantsResponse } from '@interfaces/interfaces';
 import { parseDate } from '@helpers/time';
 import {
 	Table,
@@ -32,7 +32,7 @@ export default function Page() {
 		return <div>Error: {error}</div>;
 	}
 
-	const response = data as FilterTravelGrantsResponse;
+	const response = data as IFilterTravelGrantsResponse;
 
 	return (
 		<div className='flex h-full flex-col gap-8'>

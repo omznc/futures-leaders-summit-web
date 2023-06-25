@@ -8,7 +8,6 @@ type UserStoreType = {
 	clearUser: () => void;
 };
 
-// A persist version of the store
 const useUserStore = create(
 	persist<UserStoreType>(
 		set => ({

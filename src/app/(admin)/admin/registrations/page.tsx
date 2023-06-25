@@ -7,8 +7,8 @@ import { redirect } from 'next/navigation';
 import useFetcher from '@helpers/fetcher';
 import { useEffect } from 'react';
 import {
-	FilterRegistrationsResponse,
-	PersonalDocument,
+	IFilterRegistrationsResponse,
+	IPersonalDocument,
 } from '@interfaces/interfaces';
 import { parseDate } from '@helpers/time';
 import toast from 'react-hot-toast';
@@ -38,7 +38,7 @@ export default function Page() {
 		return <div>Error: {error}</div>;
 	}
 
-	const response = data as FilterRegistrationsResponse;
+	const response = data as IFilterRegistrationsResponse;
 
 	return (
 		<div className='flex h-full flex-col gap-8'>
@@ -143,7 +143,7 @@ export default function Page() {
 	);
 }
 
-const DownloadCV = async (doc: PersonalDocument, token: string) => {
+const DownloadCV = async (doc: IPersonalDocument, token: string) => {
 	let res = await fetch(
 		`https://fls-backend.herokuapp.com/document/download-document/${doc?.id}`,
 		{

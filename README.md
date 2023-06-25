@@ -8,8 +8,15 @@ implementations of them.
 This project tries to minimize the amount of dependencies we use, and tries to
 use the most up-to-date versions of the ones we do.
 
-This project uses `pnpm` as the package manager, and `husky` to run pre-commit
-hooks.
+This project uses:
+
+-   `pnpm` as the package manager
+-   `husky` to run pre-commit hooks
+-   `zustand` for state management
+-   `swr` for data fetching
+-   `react-icons` for icons
+-   `tailwindcss` for styling (or CSS modules)
+-   `prettier` for code formatting
 
 ## Contribution Guide
 
