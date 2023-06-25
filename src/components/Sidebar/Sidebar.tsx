@@ -14,7 +14,7 @@ import {
 } from 'react-icons/bs';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import FLSLogo from '@public/logos/logo-fls.svg';
 import FLSLogoSmall from '@public/logos/logo-fls-small.svg';
 import Image from 'next/image';
@@ -175,30 +175,29 @@ function SidebarEntry({ title, link, icon, expanded }: SidebarEntryProps) {
 	const pathname = usePathname();
 	const active = pathname === link;
 	const [tooltipOpen, setTooltipOpen] = useState(false);
+	const router = useRouter();
 
 	return (
-		<div
-			className={classes('h-10', styles.shiny)}
-			onMouseMove={e => {
-				const { x, y } = e.currentTarget.getBoundingClientRect();
-				e.currentTarget.style.setProperty(
-					'--x',
-					(e.clientX - x).toString()
-				);
-				e.currentTarget.style.setProperty(
-					'--y',
-					(e.clientY - y).toString()
-				);
-			}}
-		>
+		<div className={classes('h-10')}>
 			{tooltipOpen && !expanded && <Tooltip>{title}</Tooltip>}
 			<Link
+				onMouseMove={e => {
+					const { x, y } = e.currentTarget.getBoundingClientRect();
+					e.currentTarget.style.setProperty(
+						'--x',
+						(e.clientX - x).toString()
+					);
+					e.currentTarget.style.setProperty(
+						'--y',
+						(e.clientY - y).toString()
+					);
+				}}
 				href={link}
 				className={`text-white h-full flex justify-start items-center gap-4 text-md overflow-hidden whitespace-nowrap rounded-xl px-4 py-2 transition-all border-[1px] border-white border-opacity-10 ${
 					active
-						? 'opacity-100 bg-white bg-opacity-10 hover:bg-opacity-30'
-						: 'opacity-50 hover:opacity-100 hover:bg-white hover:bg-opacity-10'
-				}`}
+						? 'opacity-100 bg-white bg-opacity-10 hover:bg-opacity-15'
+						: 'opacity-50 hover:opacity-80 bg-opacity-20 hover:bg-white hover:bg-opacity-10'
+				} ${styles.shiny}`}
 				onMouseEnter={() => setTooltipOpen(true)}
 				onMouseLeave={() => setTooltipOpen(false)}
 				style={{}}
