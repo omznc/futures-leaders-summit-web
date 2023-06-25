@@ -12,7 +12,7 @@ import {
 } from 'react-icons/fa';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import FLSLogo from '@public/logos/logo-fls.svg';
 import FLSLogoSmall from '@public/logos/logo-fls-small.svg';
 import Image from 'next/image';
@@ -55,6 +55,8 @@ const sidebarEntries = [
 
 export default function Sidebar() {
 	const [expanded, setExpanded] = useState(true);
+	const router = useRouter();
+	const [logoutConfirm, setLogoutConfirm] = useState(false);
 	const { clearUser } = useUserStore();
 
 	return (
@@ -131,12 +133,22 @@ export default function Sidebar() {
 						{expanded && 'Collapse'}
 					</span>
 				</div>
-				<Link
-					onClick={() => clearUser()}
-					href='/admin'
+				<div
+					onClick={() => {
+						if (logoutConfirm) {
+							clearUser();
+							router.push('/admin');
+						} else {
+							setLogoutConfirm(true);
+						}
+					}}
+					onMouseLeave={() => setLogoutConfirm(false)}
 					className={classes(
 						!expanded ? 'justify-center items-center' : '',
-						'flex gap-4 justify-start items-center h-10 rounded-xl bg-red-500 bg-opacity-10 transition-all hover:bg-opacity-100 w-full px-4 py-2 text-center border-[1px] border-white border-opacity-10'
+						logoutConfirm
+							? 'bg-opacity-100  hover:bg-opacity-100'
+							: 'bg-opacity-10  hover:bg-opacity-50',
+						'flex cursor-pointer gap-4 justify-start items-center h-10 rounded-xl bg-red-500 transition-all w-full px-4 py-2 text-center border-[1px] border-white border-opacity-10'
 					)}
 				>
 					<div
@@ -154,9 +166,10 @@ export default function Sidebar() {
 							'transition-opacity duration-200'
 						)}
 					>
-						{expanded && 'Logout'}
+						{expanded &&
+							(logoutConfirm ? 'Confirm logout' : 'Logout')}
 					</span>
-				</Link>
+				</div>
 			</div>
 		</div>
 	);
