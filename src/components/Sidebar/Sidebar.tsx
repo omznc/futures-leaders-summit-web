@@ -1,6 +1,8 @@
 'use client';
 
 import {
+	FaArrowLeft,
+	FaArrowRight,
 	FaCarAlt,
 	FaMoneyCheck,
 	FaSignOutAlt,
@@ -8,10 +10,6 @@ import {
 	FaTags,
 	FaUsers,
 } from 'react-icons/fa';
-import {
-	BsLayoutTextSidebar,
-	BsLayoutTextSidebarReverse,
-} from 'react-icons/bs';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -122,11 +120,7 @@ export default function Sidebar() {
 						)}
 						style={{ minWidth: expanded ? 'auto' : '16px' }}
 					>
-						{expanded ? (
-							<BsLayoutTextSidebar />
-						) : (
-							<BsLayoutTextSidebarReverse />
-						)}
+						{expanded ? <FaArrowLeft /> : <FaArrowRight />}
 					</div>
 					<span
 						className={classes(
@@ -134,7 +128,7 @@ export default function Sidebar() {
 							'transition-opacity duration-200'
 						)}
 					>
-						{expanded && 'Collapse'}{' '}
+						{expanded && 'Collapse'}
 					</span>
 				</div>
 				<Link
