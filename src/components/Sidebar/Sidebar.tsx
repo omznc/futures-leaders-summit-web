@@ -14,7 +14,7 @@ import {
 } from 'react-icons/bs';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import FLSLogo from '@public/logos/logo-fls.svg';
 import FLSLogoSmall from '@public/logos/logo-fls-small.svg';
 import Image from 'next/image';
@@ -175,7 +175,6 @@ function SidebarEntry({ title, link, icon, expanded }: SidebarEntryProps) {
 	const pathname = usePathname();
 	const active = pathname === link;
 	const [tooltipOpen, setTooltipOpen] = useState(false);
-	const router = useRouter();
 
 	return (
 		<div className={classes('h-10')}>
