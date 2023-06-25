@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { FilterDiscountsResponse } from '@interfaces/interfaces';
 import toast from 'react-hot-toast';
 import { Table, TableData, TableHeader } from '@components/Table/Table';
+import { BsTrash3 } from 'react-icons/bs';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -106,7 +107,11 @@ export default function Page() {
 							<TableData data={item.availableUnits} />
 							<TableData data={item.unitsUsed} />
 							<TableData
-								data={'Delete'}
+								data={
+									<>
+										<BsTrash3 /> Delete
+									</>
+								}
 								onClick={() => {
 									DeleteDiscount(item.id, user?.token!)
 										.then(() => {

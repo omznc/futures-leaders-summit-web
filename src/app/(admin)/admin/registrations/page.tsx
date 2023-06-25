@@ -14,6 +14,8 @@ import {
 import { parseDate } from '@helpers/time';
 import toast from 'react-hot-toast';
 import { Table, TableData, TableHeader } from '@components/Table/Table';
+import { MdOpenInNew } from 'react-icons/md';
+import { BsDownload } from 'react-icons/bs';
 
 export default function Page() {
 	const { user } = useUserStore();
@@ -118,9 +120,27 @@ export default function Page() {
 							<TableData data={item?.ticketType} />
 							<TableData data={item?.paymentConfirmationCode} />
 							<TableData data={parseDate(item?.createdAt)} />
-							<TableData data={item?.linkedinUrl} />
 							<TableData
-								data={item?.personalDocument ? 'Download' : ''}
+								data={
+									item?.linkedinUrl && (
+										<>
+											<MdOpenInNew /> Open
+										</>
+									)
+								}
+								onClick={() => {
+									item?.linkedinUrl &&
+										window.open(item.linkedinUrl);
+								}}
+							/>
+							<TableData
+								data={
+									item?.personalDocument && (
+										<>
+											<BsDownload /> Download
+										</>
+									)
+								}
 								onClick={() => {
 									item?.personalDocument &&
 										DownloadCV(

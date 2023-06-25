@@ -29,16 +29,22 @@ export function TableData({
 	data: ReactNode;
 	onClick?: () => void;
 }) {
+	const clickable = onClick && data;
 	return (
 		<td
 			onClick={onClick}
-			className={`whitespace-nowrap flex-wrap px-4 py-2 text-gray-700 ${
-				onClick &&
-				data &&
-				'cursor-pointer hover:bg-neutral-200 bg-neutral-100 transition-all'
+			className={`whitespace-nowrap  border-[1px] border-black border-opacity-10 flex-wrap px-4 py-2 text-gray-700 ${
+				clickable &&
+				'cursor-pointer text-center hover:bg-neutral-200 bg-neutral-100 transition-all'
 			}`}
 		>
-			<div className='flex gap-2 items-center'>{data}</div>
+			<div
+				className={`flex gap-2 items-center ${
+					clickable && 'justify-center'
+				}`}
+			>
+				{data}
+			</div>
 		</td>
 	);
 }
