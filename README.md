@@ -1,5 +1,7 @@
 # Futures Leaders Summit
 
+> This has been archived and moved to the official BHFF Github account. No further work will be done here as it has served its purpose - being a personal redesign that has been merged upstream.
+
 My reasoning behind the rewrite was to stay more up-to-date with the most
 current tools we were already using, and to distance ourselves from
 miscellaneous dependencies that were not being maintained, by creating our own
